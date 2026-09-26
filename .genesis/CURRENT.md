@@ -1,7 +1,7 @@
 # Current State
 
 - Phase: BUILD
-- Active milestone: R1 - shared shell and homepage fidelity
+- Active milestone: R2 - service and editorial page fidelity
 - Workspace at discovery: empty
 - Reference audited: home, representative corporate/wedding/proposal routes, desktop and mobile header behavior, robots, pages sitemap, and blog sitemap
 - Discovered scope: 94 public routes (81 static + 13 blog)
@@ -16,7 +16,7 @@
 - M2 visual smoke verification: passed across all 16 core routes at the unchanged 55% milestone threshold
 - M3 implementation pass: all 65 corporate, wedding, and proposal location routes render typed source copy and local media through three reusable families plus two explicit legacy variants
 - M3 completeness pass: family-specific planning/package sections, source-ordered galleries, exact 21-logo press grids, gallery/video CTAs, legacy reviews, and legacy consultation forms are implemented
-- Homepage correction: the 14-logo Good Company marquee and three star-rated testimonials are rendered once on `/` only; location and service templates do not duplicate that homepage-only section
+- Homepage correction: the complete 25-logo Good Company marquee and twelve source testimonial cards are rendered once on `/` only; location and service templates do not duplicate that homepage-only section
 - M3 media audit: all corporate and wedding shared media plus every modern proposal route's package background and three-image gallery are explicitly mapped from the live source
 - M3 automated verification: all 65 location routes render without placeholders and assert exact lower-page media/logo counts; representative 390px overflow checks pass
 - M3 visual verification now compares 130 full-page captures (65 desktop + 65 captured mobile-width references), rather than only the first desktop viewport
@@ -25,7 +25,7 @@
 
 ## Next action
 
-Begin R1 by reproducing the source homepage hero slideshow, then correct the Good Company testimonial/carousel presentation and shared footer.
+Begin R2 with the four main service routes, then rebuild the supporting editorial and contact routes from their captured source records.
 
 ## 2026-09-26 fidelity audit correction
 
@@ -42,3 +42,17 @@ Begin R1 by reproducing the source homepage hero slideshow, then correct the Goo
 - Homepage logo movement, infinite looping, loaded images, reduced-motion fallback, and mobile testimonial scrolling are exercised in-browser.
 - The route audit checks all 94 routes and correctly identifies the 13 unfinished blog article templates.
 - The strict R1 baseline now fails as intended: homepage desktop 14.55%, mobile 52.42%, against the 1.5% threshold.
+
+## R1 verification evidence
+
+- The homepage now includes a three-slide hero with counters, transitions, and reduced-motion behavior.
+- Good Company contains the full captured 25-logo client track and all twelve source testimonial cards in independently cycling columns.
+- The exact 21-item press order, source service-card media, local Wix typography, and source section dimensions are restored.
+- The shared footer now reveals two equal actions only on hover, opens Event Inquiry in an in-page modal, and uses the source vendor mailto action.
+- Exact display derivatives are stored locally and can be regenerated with `node scripts/capture-home-display-assets.mjs`.
+- Dynamic masks cover only source slideshow/marquee frames and document why each region is nondeterministic.
+- `pnpm test:e2e --grep "homepage|shared shell|carousel"` passes.
+- `pnpm visual:test --project=home` passes at 1.29% desktop and 1.23% mobile (1.5% maximum).
+- Footer correction verification passes: Inquire Now reveals two equal 211px actions with the source 30px gap, Event Inquiry opens a same-page dialog, and Become A Vendor uses the source mailto URL.
+- Post-correction checks pass: lint, typecheck, production build, shared shell, homepage interactions, and all 16 core pages.
+- Post-correction homepage visuals pass at 1.30% desktop and 1.24% mobile (1.5% maximum).

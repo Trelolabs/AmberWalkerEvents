@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { CoreMedia, CorePageRecord } from "@/src/content/core-pages.generated";
 import type { RouteRecord } from "@/src/content/routes.generated";
 import { GoodCompanySection } from "./good-company-section";
+import { HomeHeroCarousel } from "./home-hero-carousel";
 
 const galleryPaths = new Set(["/corporatesocialportfolio", "/proposalweddingportfolio"]);
 const videoPaths = new Set(["/corporatesocialvideos", "/proposalweddingvideos", "/media"]);
@@ -35,18 +36,41 @@ function Hero({ page, title, kicker }: { page: CorePageRecord; title: string; ki
 }
 
 function HomePage({ page }: { page: CorePageRecord }) {
-  const pageImages = images(page);
-  const hero = pageImages.find((media) => media.src.includes("db5a50c85d09493bad25712093d75668")) || pageImages[0];
   const body = paragraphs(page)[0];
-  const serviceImages = pageImages.filter((media) => /\.(?:jpe?g|webp)$/i.test(media.src)).slice(-4);
-  const logoImages = pageImages.filter((media) => media.src.endsWith(".png")).slice(1, 19);
+  const pressLogos = [
+    ["US Weekly", "/media/home/display/press-01.avif"],
+    ["Good Night New York", "/media/home/display/press-02.avif"],
+    ["Toronto Sun", "/media/home/display/press-03.avif"],
+    ["Fashion", "/media/home/display/press-04.avif"],
+    ["Breakfast Television", "/media/home/display/press-05.avif"],
+    ["The New York Times", "/media/home/display/press-06.avif"],
+    ["CP24", "/media/home/display/press-07.avif"],
+    ["Daily Mail", "/media/home/display/press-08.avif"],
+    ["Brides", "/media/home/display/press-09.avif"],
+    ["Toronto Star", "/media/home/display/press-10.avif"],
+    ["New You", "/media/home/display/press-11.avif"],
+    ["The Knot", "/media/home/display/press-12.avif"],
+    ["Narcity", "/media/home/display/press-13.avif"],
+    ["National Post", "/media/home/display/press-14.avif"],
+    ["LA Inquisitor", "/media/home/display/press-15.avif"],
+    ["Entertainment Tonight", "/media/home/display/press-16.avif"],
+    ["Hollywood", "/media/home/display/press-17.avif"],
+    ["Living Luxe", "/media/home/display/press-18.avif"],
+    ["Cityline", "/media/home/display/press-19.avif"],
+    ["Millennium", "/media/home/display/press-20.avif"],
+    ["Event Gurus", "/media/home/display/press-21.avif"],
+  ] as const;
+  const services = [
+    ["EXCLUSIVE SOCIAL EVENTS", "/socialevents", "/media/home/display/service-social.avif"],
+    ["BESPOKE CORPORATE EVENTS", "/corporateevents", "/media/home/display/service-corporate.avif"],
+    ["CUSTOM PROPOSAL PLANNING", "/proposalplanning", "/media/home/display/service-proposal.avif"],
+    ["LUXURY WEDDING PLANNING", "/weddingplanning", "/media/home/display/service-wedding.avif"],
+  ] as const;
   return <main className="home-page">
-    <section className="home-hero">{hero ? <MediaImage media={hero} alt="Luxury event designed by Amber Walker Events" priority /> : null}</section>
+    <HomeHeroCarousel />
     <section className="home-philosophy"><h1>AMBER WALKER EVENTS PHILOSOPHY</h1><span className="section-rule" />{body ? <p>{body}</p> : null}</section>
-    <section className="press-section"><h2>AS SEEN ON</h2><div className="logo-grid">{logoImages.map((media, index) => <div key={media.src}><MediaImage media={media} alt={`Press feature ${index + 1}`} /></div>)}</div></section>
-    <section className="services-overview"><h2>A FULL SERVICE EVENT PLANNING FIRM</h2><span className="section-rule" /><div className="service-card-grid">{[
-      ["EXCLUSIVE SOCIAL EVENTS", "/socialevents"], ["BESPOKE CORPORATE EVENTS", "/corporateevents"], ["CUSTOM PROPOSAL PLANNING", "/proposalplanning"], ["LUXURY WEDDING PLANNING", "/weddingplanning"],
-    ].map(([label, href], index) => <Link href={href} key={href} className="service-card">{serviceImages[index] ? <MediaImage media={serviceImages[index]} alt="" /> : null}<span>{label}</span></Link>)}</div></section>
+    <section className="press-section"><h2>AS SEEN ON</h2><div className="logo-grid">{pressLogos.map(([alt, src]) => <div key={src}><Image src={src} alt={alt} fill sizes="100px" unoptimized /></div>)}</div></section>
+    <section className="services-overview"><h2>A FULL SERVICE EVENT PLANNING FIRM</h2><span className="section-rule" /><div className="service-card-grid">{services.map(([label, href, src]) => <Link href={href} key={href} className="service-card"><Image src={src} alt="" fill sizes="265px" unoptimized /><span>{label}</span></Link>)}</div></section>
     <GoodCompanySection />
   </main>;
 }

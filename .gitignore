@@ -6,7 +6,8 @@ node_modules/
 out/
 
 # Generated source-audit artifacts
-.reference/
+.reference/*
+!.reference/visual-masks.json
 
 # Test and coverage output
 coverage/

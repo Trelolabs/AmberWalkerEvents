@@ -31,8 +31,8 @@ try {
     assert(await page.locator(".site-footer").count(), `${pathname} has no footer.`);
     if (pathname === "/") {
       assert(await page.locator('[data-home-section="good-company"]').count(), "Homepage Good Company section is missing.");
-      assert((await page.locator(".brand-flow img").count()) === 28, "Homepage does not render the duplicated 14-logo marquee.");
-      assert((await page.locator(".review-stars").count()) === 3, "Homepage does not render all three testimonial ratings.");
+      assert((await page.locator(".brand-flow img").count()) === 50, "Homepage does not render the duplicated 25-logo marquee.");
+      assert((await page.locator(".testimonial-slide").count()) === 12, "Homepage does not render all twelve source testimonial cards.");
       await page.waitForFunction(() => document.querySelector(".brand-flow img")?.naturalWidth > 0);
     } else {
       assert(!(await page.locator('[data-home-section="good-company"]').count()), `${pathname} incorrectly duplicates the homepage Good Company section.`);

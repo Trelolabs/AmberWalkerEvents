@@ -4,8 +4,8 @@ import type { SiteTheme } from "@/src/content/routes.generated";
 import { navigation } from "@/src/lib/site-navigation";
 
 const logos = {
-  dark: "/media/home/78396c-87da34b9245943a0a35864870b0e2113-mv2-a7292f07f9.png",
-  lilac: "/media/home/78396c-87da34b9245943a0a35864870b0e2113-mv2-a7292f07f9.png",
+  dark: "/media/home/display/header-logo.avif",
+  lilac: "/media/home/display/header-logo.avif",
   light: "/media/home/78396c-4652a19336e34b93a3b3e5c3e0ee34e5-mv2-f46d33b26b.png",
 } satisfies Record<SiteTheme, string>;
 
@@ -14,7 +14,7 @@ export function SiteHeader({ theme }: { theme: SiteTheme }) {
     <header className="site-header" data-theme={theme}>
       <div className="brand-lockup">
         <Link href="/" aria-label="Amber Walker Events home">
-          <Image className="brand-logo" src={logos[theme]} width={367} height={184} priority alt="Amber Walker Events" />
+          <Image className="brand-logo" src={logos[theme]} width={367} height={184} priority unoptimized={theme !== "light"} alt="Amber Walker Events" />
         </Link>
       </div>
       <nav className="desktop-nav" aria-label="Primary navigation">
@@ -28,7 +28,7 @@ export function SiteHeader({ theme }: { theme: SiteTheme }) {
         ))}</ul>
       </nav>
       <details className="mobile-nav">
-        <summary>MENU</summary>
+        <summary>SERVICES</summary>
         <nav aria-label="Mobile navigation">{navigation.map((item) => (
           <div className="mobile-nav-group" key={item.label}>
             {item.href ? <Link href={item.href}>{item.label}</Link> : <span>{item.label}</span>}

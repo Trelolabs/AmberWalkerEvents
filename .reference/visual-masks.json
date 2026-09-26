@@ -1,0 +1,50 @@
+{
+  "/": {
+    "desktop": [
+      {
+        "x": 157,
+        "y": 1766,
+        "width": 1127,
+        "height": 266,
+        "reason": "The source service tiles are independent 20/19-item slideshow frames captured at nondeterministic phases."
+      },
+      {
+        "x": 0,
+        "y": 2193,
+        "width": 1440,
+        "height": 185,
+        "reason": "The source client-logo marquee is captured at a nondeterministic animation phase."
+      }
+    ],
+    "mobile": [
+      {
+        "x": 0,
+        "y": 277,
+        "width": 390,
+        "height": 498,
+        "reason": "The source hero slideshow is captured at a nondeterministic frame and mobile-specific raster crop."
+      },
+      {
+        "x": 0,
+        "y": 1766,
+        "width": 390,
+        "height": 266,
+        "reason": "The source service tiles are independent 20/19-item slideshow frames captured at nondeterministic phases."
+      },
+      {
+        "x": 0,
+        "y": 2193,
+        "width": 390,
+        "height": 185,
+        "reason": "The source client-logo marquee is captured at a nondeterministic animation phase."
+      },
+      {
+        "x": 0,
+        "y": 2388,
+        "width": 390,
+        "height": 456,
+        "reason": "The source testimonial columns rotate independently and are captured at a nondeterministic phase."
+      }
+    ]
+  }
+}
