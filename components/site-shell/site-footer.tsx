@@ -2,11 +2,11 @@ import Link from "next/link";
 
 const inquiries = [["Corporate Event", "/corporateevents"], ["Social Event", "/socialevents"], ["Wedding Planning", "/weddingplanning"], ["Proposal Planning", "/proposalplanning"]] as const;
 
-export function SiteFooter() {
+export function SiteFooter({ proposal = false }: { proposal?: boolean }) {
   return (
     <footer className="site-footer">
       <h2>Let&apos;s Start Planning</h2>
-      <p>SCHEDULE A CALL WITH AMBER TO CHAT ABOUT YOUR EVENT</p>
+      <p>SCHEDULE A CALL WITH AMBER TO CHAT ABOUT YOUR {proposal ? "PROPOSAL" : "EVENT"}</p>
       <div className="footer-inquiry-links">{inquiries.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>
       <span className="footer-or">Or</span>
       <Link className="footer-primary" href="/contact">Inquire Now</Link>

@@ -34,6 +34,7 @@ try {
   }
   await desktop.goto(`${origin}/`);
   await desktop.getByRole("button", { name: "ABOUT" }).focus();
+  await desktop.waitForTimeout(250);
   assert(await desktop.locator(".submenu").first().isVisible(), "Keyboard focus did not reveal the desktop submenu.");
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });

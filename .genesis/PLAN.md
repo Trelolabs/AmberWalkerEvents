@@ -1,6 +1,6 @@
 # Amber Walker Events — Fidelity Recovery Plan
 
-Status: proposed on 2026-09-26; implementation awaits approval.
+Status: approved on 2026-09-26; R0 complete and R1 ready.
 
 ## Objective
 
@@ -22,7 +22,7 @@ Finish the 94-route Next.js clone by replacing smoke-level completeness with ver
 
 These foundations may be corrected where the audit proves them inaccurate; they are not evidence that later page work is complete.
 
-## R0 — Repair the verification harness
+## R0 — Repair the verification harness (complete)
 
 Outcome: tests can detect missing below-the-fold sections, non-moving carousels, placeholders, broken links/media, and real mobile regressions.
 

@@ -11,8 +11,9 @@ function routeKey(url) {
 }
 
 function themeFor(pathname) {
-  if (pathname === "/proposalplanning" || pathname === "/proposalweddingportfolio" || pathname === "/proposalweddingvideos" || pathname === "/media" || pathname.includes("proposalplanning") || pathname === "/newyorkpropsalplanning") return "lilac";
-  if (pathname === "/weddingplanning" || pathname.startsWith("/weddingplanning")) return "light";
+  if (pathname === "/proposalplanningcalifornia" || pathname === "/proposalplanningtoronto") return "light";
+  if (pathname === "/proposalplanning" || pathname === "/proposaltips" || pathname === "/proposalweddingportfolio" || pathname === "/proposalweddingvideos" || pathname === "/media" || pathname.includes("proposalplanning") || pathname === "/newyorkpropsalplanning") return "lilac";
+  if (pathname === "/copy-of-social-events" || pathname === "/weddingplanning" || pathname.startsWith("/weddingplanning")) return "light";
   return "dark";
 }
 

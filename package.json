@@ -12,8 +12,16 @@
     "audit:source": "node scripts/source-audit.mjs",
     "audit:source:check": "node scripts/check-source-audit.mjs",
     "media:optimize": "node scripts/optimize-captured-media.mjs",
-    "generate:content": "node scripts/generate-route-content.mjs",
-    "test:shell": "node scripts/check-shared-shell.mjs"
+    "generate:content": "node scripts/generate-route-content.mjs && node scripts/generate-core-content.mjs && node scripts/generate-location-content.mjs",
+    "test:shell": "node scripts/check-shared-shell.mjs",
+    "test:carousel": "node scripts/check-homepage-interactions.mjs",
+    "test:e2e": "next build && node scripts/run-e2e.mjs",
+    "test:core": "node scripts/check-core-pages.mjs",
+    "test:locations": "node scripts/check-location-pages.mjs",
+    "audit:routes": "ROUTE_AUDIT_REPORT_ONLY=1 node scripts/check-route-completeness.mjs",
+    "verify:routes": "node scripts/check-route-completeness.mjs",
+    "verify:harness": "next build && node scripts/check-verification-harness.mjs && node scripts/check-homepage-interactions.mjs && ROUTE_AUDIT_REPORT_ONLY=1 node scripts/check-route-completeness.mjs",
+    "visual:test": "node scripts/visual-test.mjs"
   },
   "dependencies": {
     "next": "16.3.6",
@@ -27,6 +35,8 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.6",
     "playwright-core": "1.63.0",
+    "pixelmatch": "7.2.0",
+    "pngjs": "7.0.0",
     "sharp": "0.35.4",
     "typescript": "^5.9.0"
   }

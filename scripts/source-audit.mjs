@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { captureFullPage, viewports as verificationViewports } from "./verification-config.mjs";
 
 const ORIGIN = "https://www.amberwalkerevents.com";
 const ROOT = process.cwd();
@@ -16,11 +17,14 @@ const PAGE_CONCURRENCY = Number(process.env.AUDIT_CONCURRENCY || 3);
 const REUSE_CAPTURE = process.env.AUDIT_REUSE_CAPTURE === "1";
 const ROUTE_FILTER = process.env.AUDIT_ROUTE || "";
 const CAPTURE_ONLY = process.env.AUDIT_CAPTURE_ONLY === "1";
+const VIEWPORT_FILTER = process.env.AUDIT_VIEWPORT || "";
 
-const viewports = {
-  desktop: { width: 1440, height: 1100 },
-  mobile: { width: 390, height: 844 },
-};
+const viewports = Object.fromEntries(
+  verificationViewports
+    .filter(({ name }) => !VIEWPORT_FILTER || name === VIEWPORT_FILTER)
+    .map(({ name, width, height }) => [name, { width, height }]),
+);
+if (!Object.keys(viewports).length) throw new Error(`Unknown AUDIT_VIEWPORT=${VIEWPORT_FILTER}`);
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -169,7 +173,8 @@ async function crawlPage(browser, url) {
       if (SCREENSHOTS) {
         const directory = path.join(REFERENCE, "screenshots", viewportName);
         await mkdir(directory, { recursive: true });
-        await page.screenshot({ path: path.join(directory, `${key}.png`), fullPage: true, animations: "disabled" });
+        const { buffer } = await captureFullPage(page);
+        await writeFile(path.join(directory, `${key}.png`), buffer);
       }
     } catch (error) {
       result.errors.push(`${viewportName}: ${error.message}`);
@@ -181,10 +186,12 @@ async function crawlPage(browser, url) {
   result.text = result.text.replace(/\n{3,}/g, "\n\n").trim();
   result.links = [...new Set(result.links)].sort();
   result.media = [...new Set([...result.media.map(cleanMediaUrl).filter(Boolean), ...extractMedia(html)])].sort();
-  await mkdir(path.join(REFERENCE, "content"), { recursive: true });
-  await mkdir(path.join(REFERENCE, "html"), { recursive: true });
-  await writeFile(path.join(REFERENCE, "content", `${key}.json`), `${JSON.stringify(result, null, 2)}\n`);
-  await writeFile(path.join(REFERENCE, "html", `${key}.html`), html);
+  if (!CAPTURE_ONLY) {
+    await mkdir(path.join(REFERENCE, "content"), { recursive: true });
+    await mkdir(path.join(REFERENCE, "html"), { recursive: true });
+    await writeFile(path.join(REFERENCE, "content", `${key}.json`), `${JSON.stringify(result, null, 2)}\n`);
+    await writeFile(path.join(REFERENCE, "html", `${key}.html`), html);
+  }
   return result;
 }
 

@@ -1,7 +1,7 @@
 # Current State
 
-- Phase: PLAN
-- Active milestone: fidelity recovery plan awaiting approval
+- Phase: BUILD
+- Active milestone: R1 - shared shell and homepage fidelity
 - Workspace at discovery: empty
 - Reference audited: home, representative corporate/wedding/proposal routes, desktop and mobile header behavior, robots, pages sitemap, and blog sitemap
 - Discovered scope: 94 public routes (81 static + 13 blog)
@@ -23,9 +23,9 @@
 - M3 current full-page result: 29.90% average, 44.06% worst at the 55% smoke threshold (improved from 42.97%/53.47%); this passes the smoke gate only and does not satisfy the final 1.5% fidelity gate
 - Known fidelity constraint: frozen screenshots contain unloaded/blurred lower widgets and moving video frames, while the supplied current reference shows the completed Good Company marquee/testimonials; final verification must mask intentional dynamic frames and reconcile the stale widget baseline rather than deleting completed content
 
-## Next action after approval
+## Next action
 
-Begin R0 by repairing the visual and functional verification harness. Do not resume page implementation until full-page desktop/mobile captures, carousel behavior checks, route-level completeness checks, and the <=1.5% fidelity gate are enforceable.
+Begin R1 by reproducing the source homepage hero slideshow, then correct the Good Company testimonial/carousel presentation and shared footer.
 
 ## 2026-09-26 fidelity audit correction
 
@@ -34,3 +34,11 @@ Begin R0 by repairing the visual and functional verification harness. Do not res
 - Core visual checks capture only the first 1100px and therefore do not inspect the homepage Good Company section.
 - The default 55% visual threshold is too permissive for an exact clone.
 - The recovery sequence is defined in `PLAN.md` as R0 through R7.
+
+## R0 verification evidence
+
+- `pnpm verify:harness` passes after building all 94 routes.
+- Reference screenshots are validated at 1440px desktop and true 390px mobile widths.
+- Homepage logo movement, infinite looping, loaded images, reduced-motion fallback, and mobile testimonial scrolling are exercised in-browser.
+- The route audit checks all 94 routes and correctly identifies the 13 unfinished blog article templates.
+- The strict R1 baseline now fails as intended: homepage desktop 14.55%, mobile 52.42%, against the 1.5% threshold.

@@ -318,7 +318,7 @@ export const routeRecords = [
     "headings": [
       "Or"
     ],
-    "theme": "dark"
+    "theme": "light"
   },
   {
     "pathname": "/corporateevents",
@@ -827,7 +827,7 @@ export const routeRecords = [
     "headings": [
       "Or"
     ],
-    "theme": "lilac"
+    "theme": "light"
   },
   {
     "pathname": "/proposalplanningtoronto",
@@ -837,7 +837,7 @@ export const routeRecords = [
     "headings": [
       "Or"
     ],
-    "theme": "lilac"
+    "theme": "light"
   },
   {
     "pathname": "/proposaltips",
@@ -849,7 +849,7 @@ export const routeRecords = [
       "WHAT PEOPLE SAY ABOUT US",
       "Or"
     ],
-    "theme": "dark"
+    "theme": "lilac"
   },
   {
     "pathname": "/proposalweddingportfolio",
