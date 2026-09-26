@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import type { SiteTheme } from "@/src/content/routes.generated";
 import { navigation } from "@/src/lib/site-navigation";
 
@@ -10,8 +13,19 @@ const logos = {
 } satisfies Record<SiteTheme, string>;
 
 export function SiteHeader({ theme }: { theme: SiteTheme }) {
+  const sentinelRef = useRef<HTMLSpanElement>(null);
+  const [compact, setCompact] = useState(false);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+    const observer = new IntersectionObserver(([entry]) => setCompact(!entry.isIntersecting));
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="site-header" data-theme={theme}>
+    <><span ref={sentinelRef} className="site-header-sentinel" aria-hidden="true" /><header className={`site-header${compact ? " is-compact" : ""}`} data-theme={theme}>
       <div className="brand-lockup">
         <Link href="/" aria-label="Amber Walker Events home">
           <Image className="brand-logo" src={logos[theme]} width={367} height={184} priority unoptimized={theme !== "light"} alt="Amber Walker Events" />
@@ -36,6 +50,6 @@ export function SiteHeader({ theme }: { theme: SiteTheme }) {
           </div>
         ))}</nav>
       </details>
-    </header>
+    </header></>
   );
 }

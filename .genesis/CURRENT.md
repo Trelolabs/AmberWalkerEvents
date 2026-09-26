@@ -56,3 +56,13 @@ Begin R2 with the four main service routes, then rebuild the supporting editoria
 - Footer correction verification passes: Inquire Now reveals two equal 211px actions with the source 30px gap, Event Inquiry opens a same-page dialog, and Become A Vendor uses the source mailto URL.
 - Post-correction checks pass: lint, typecheck, production build, shared shell, homepage interactions, and all 16 core pages.
 - Post-correction homepage visuals pass at 1.30% desktop and 1.24% mobile (1.5% maximum).
+- Shared-shell correction reopened to reproduce the source's pinned 275px header on every route and replace the modal logo crop with an exact local 136px mark.
+- Shared-shell correction verified: the 275px header remains pinned at `top: 0` across dark, lilac, light, desktop, and mobile routes.
+- Modal alignment verified at the source bounds: the local 136px mark renders at `x=652`, `y=19`, and the 802px form begins at `x=330` in the 1440px reference viewport.
+- Final correction checks pass: lint, typecheck, production build, shared shell, homepage interactions, and strict homepage visuals at 1.30% desktop / 1.24% mobile.
+- Modal polish reduces the centered mark to 112px while preserving the verified heading and form grid positions.
+- Sticky-shell polish preserves the source header at page top and reduces it to 131px desktop / 132px mobile after scrolling.
+- Short-laptop modal correction keeps the 802px source grid centered while compacting vertical spacing so the full form and submit action remain inside a 1063x635 viewport.
+- Inquiry validation now mirrors the live form with nine field-level messages, red invalid borders, accessible error references, first-error focus, and source Futura/Helvetica control typography.
+- Modal sizing now uses one centered 90% content scale so its logo, contact typography, controls, spacing, close action, and form reduce proportionally; desktop and 1063x635 browser assertions verify the rendered alignment.
+- Modal close-icon polish reduces the oversized glyph while preserving a 48px accessible control target.
