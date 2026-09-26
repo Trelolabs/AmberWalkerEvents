@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "audit:source": "node scripts/source-audit.mjs",
     "audit:source:check": "node scripts/check-source-audit.mjs",
-    "media:optimize": "node scripts/optimize-captured-media.mjs"
+    "media:optimize": "node scripts/optimize-captured-media.mjs",
+    "generate:content": "node scripts/generate-route-content.mjs",
+    "test:shell": "node scripts/check-shared-shell.mjs"
   },
   "dependencies": {
     "next": "16.3.6",

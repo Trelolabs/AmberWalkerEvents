@@ -1,7 +1,7 @@
 # Current State
 
 - Phase: BUILD
-- Active milestone: M1 — Next.js foundation and shared responsive shell
+- Active milestone: M2 - core and service landing pages
 - Workspace at discovery: empty
 - Reference audited: home, representative corporate/wedding/proposal routes, desktop and mobile header behavior, robots, pages sitemap, and blog sitemap
 - Discovered scope: 94 public routes (81 static + 13 blog)
@@ -10,7 +10,8 @@
 - Reference captures: 94 content records and 188 full-page screenshots
 - Production media: 464 local files; 5 source files are documented as unavailable because Wix returns 403
 - Foundation verification: lint, typecheck, and production build pass
+- M1 verification: all 94 routes prerender; dark, light, and lilac shells pass desktop, keyboard, and mobile checks
 
 ## Next action after approval
 
-Implement M1's shared shell, exact typography/theme tokens, navigation, metadata foundation, and responsive behavior from the frozen reference.
+Implement the home page and the 15 non-location core/media pages using the frozen content and media records.

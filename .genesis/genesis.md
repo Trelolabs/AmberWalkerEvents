@@ -9,3 +9,5 @@
 - [x] Kickoff primed
 - [x] M0 BUILD loop completed and verified
 - [x] M1 BUILD loop primed
+- [x] M1 shared shell built and verified
+- [x] M2 BUILD loop primed
