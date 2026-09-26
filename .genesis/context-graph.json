@@ -1,0 +1,21 @@
+{
+  "project": "amber-walker-events-next-clone",
+  "status": "planned",
+  "nodes": [
+    { "id": "source-site", "kind": "reference", "url": "https://www.amberwalkerevents.com/" },
+    { "id": "source-audit", "kind": "tooling", "dependsOn": ["source-site"] },
+    { "id": "media-manifest", "kind": "content", "dependsOn": ["source-audit"] },
+    { "id": "route-content", "kind": "content", "dependsOn": ["source-audit"] },
+    { "id": "shared-shell", "kind": "ui", "dependsOn": ["media-manifest"] },
+    { "id": "core-pages", "kind": "ui", "dependsOn": ["shared-shell", "route-content"] },
+    { "id": "location-pages", "kind": "ui", "dependsOn": ["shared-shell", "route-content"] },
+    { "id": "blog-rich-media", "kind": "ui", "dependsOn": ["shared-shell", "route-content"] },
+    { "id": "visual-verification", "kind": "verification", "dependsOn": ["core-pages", "location-pages", "blog-rich-media"] }
+  ],
+  "invariants": [
+    "All 94 source sitemap routes remain directly addressable with their original slugs.",
+    "Owned production media is local and traceable to a source URL; UI code does not hotlink Wix media.",
+    "Desktop and mobile fidelity is independently verified against the frozen reference screenshots.",
+    "Page families share templates, while source-specific deviations are explicit data or component exceptions."
+  ]
+}

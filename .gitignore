@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Next.js output
+.next/
+out/
+
+# Generated source-audit artifacts
+.reference/
+
+# Test and coverage output
+coverage/
+playwright-report/
+test-results/
+
+# TypeScript
+*.tsbuildinfo
+
+# Local environment files
+.env*
+!.env.example
+
+# Deployment providers
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
