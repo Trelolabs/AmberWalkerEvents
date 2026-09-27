@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { SiteTheme } from "@/src/content/routes.generated";
 import { navigation } from "@/src/lib/site-navigation";
@@ -13,6 +14,8 @@ const logos = {
 } satisfies Record<SiteTheme, string>;
 
 export function SiteHeader({ theme }: { theme: SiteTheme }) {
+  const pathname = usePathname();
+  const legacySocial = pathname === "/copy-of-social-events";
   const sentinelRef = useRef<HTMLSpanElement>(null);
   const [compact, setCompact] = useState(false);
 
@@ -25,14 +28,24 @@ export function SiteHeader({ theme }: { theme: SiteTheme }) {
   }, []);
 
   return (
-    <><span ref={sentinelRef} className="site-header-sentinel" aria-hidden="true" /><header className={`site-header${compact ? " is-compact" : ""}`} data-theme={theme}>
+    <><span ref={sentinelRef} className="site-header-sentinel" aria-hidden="true" /><header className={`site-header${compact ? " is-compact" : ""}${legacySocial ? " legacy-site-header" : ""}`} data-theme={theme}>
       <div className="brand-lockup">
         <Link href="/" aria-label="Amber Walker Events home">
-          <Image className="brand-logo" src={logos[theme]} width={367} height={184} priority unoptimized={theme !== "light"} alt="Amber Walker Events" />
+          <Image className="brand-logo" src={legacySocial ? "/media/services/display/legacy-header-logo.png" : logos[theme]} width={legacySocial ? 460 : 367} height={legacySocial ? 232 : 184} priority unoptimized alt="Amber Walker Events" />
         </Link>
+        {legacySocial ? <div className="legacy-social-icons" aria-label="Social media"><span>◎</span><span>f</span><span>in</span></div> : null}
       </div>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        <ul>{navigation.map((item) => (
+        <ul>{(legacySocial ? [
+          { label: "ABOUT", href: "/aboutawe" },
+          { label: "GALLERY", href: "/corporatesocialportfolio" },
+          { label: "CORPORATE EVENTS", href: "/corporateevents" },
+          { label: "SOCIAL EVENTS", href: "/socialevents" },
+          { label: "PROPOSAL PLANNING", href: "/proposalplanning" },
+          { label: "WEDDING PLANNING", href: "/weddingplanning" },
+          { label: "BLOGS", href: "/blog" },
+          { label: "CONTACT", href: "/contact" },
+        ] : navigation).map((item) => (
           <li key={item.label} className={item.children ? "has-submenu" : undefined}>
             {item.href ? <Link href={item.href}>{item.label}</Link> : <button type="button">{item.label}</button>}
             {item.children ? <ul className="submenu">{item.children.map((child) => (

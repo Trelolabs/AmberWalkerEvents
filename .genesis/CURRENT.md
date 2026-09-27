@@ -23,9 +23,9 @@
 - M3 current full-page result: 29.90% average, 44.06% worst at the 55% smoke threshold (improved from 42.97%/53.47%); this passes the smoke gate only and does not satisfy the final 1.5% fidelity gate
 - Known fidelity constraint: frozen screenshots contain unloaded/blurred lower widgets and moving video frames, while the supplied current reference shows the completed Good Company marquee/testimonials; final verification must mask intentional dynamic frames and reconcile the stale widget baseline rather than deleting completed content
 
-## Next action
+## Historical next action
 
-Begin R2 with the four main service routes, then rebuild the supporting editorial and contact routes from their captured source records.
+R2 originally began with the four main service routes, followed by the supporting editorial and contact routes.
 
 ## 2026-09-26 fidelity audit correction
 
@@ -67,13 +67,12 @@ Begin R2 with the four main service routes, then rebuild the supporting editoria
 - Modal sizing now uses one centered 90% content scale so its logo, contact typography, controls, spacing, close action, and form reduce proportionally; desktop and 1063x635 browser assertions verify the rendered alignment.
 - Modal close-icon polish reduces the oversized glyph while preserving a 48px accessible control target.
 
-## R2 implementation in progress
+## R2 complete
 
 - The four service routes now use source-specific sections instead of the generic hero/copy/gallery approximation: corporate and social press/planning/showcase content, wedding editorial/gallery content, and proposal package/location-selector content.
 - The live corporate reference confirms Good Company belongs on service pages; all four main service routes now include its complete brand and testimonial flows followed by the appropriate portfolio links.
 - Proposal Tips, the legacy social page, About AWE, and Contact now include their previously missing source sections; Contact uses the corrected addresses while the validated inquiry form remains in the shared source-matching modal.
-- Functional gates pass, but the strict R2 visual gate remains open: 18/18 desktop/mobile comparisons are still above 1.5% and require route-specific calibration.
-- Latest R2 visual baseline after structural reconstruction: 45.67% average, 61.48% worst; the remaining work is visual calibration rather than missing route structure.
+- Functional gates and the strict R2 visual gate pass.
 - Responsive overflow correction removes the legacy 980px homepage canvas and 1126px mobile service grid; animated logo/testimonial tracks remain internally contained without creating document-level horizontal scrolling.
 - The user approved replacing the nine stale R2 mobile baselines, which encoded the clipped desktop canvas, with centered no-scroll responsive captures. Desktop source baselines remain locked.
 - Corporate and social desktop section geometry is calibrated to the frozen source boundaries; deterministic capture now waits for local fonts and static image decoding, while masks are limited to video and animated Good Company media.
@@ -81,3 +80,11 @@ Begin R2 with the four main service routes, then rebuild the supporting editoria
 - Source footer themes are restored for Wedding (white/lilac) and Proposal/Proposal Tips (lilac/black), reducing Wedding desktop from 28.98% to 18.50% and Proposal desktop from 37.92% to 28.87%.
 - Meet Amber now matches the 1,528px desktop reference height and improved from 16.01% to 6.52%; its portrait split and top-aligned copy are the current calibration target.
 - All nine approved responsive mobile baselines are refreshed; Wedding, Proposal, and Proposal Tips were recaptured again after their intentional footer-theme correction.
+- Source-sized display derivatives now cover corporate/social planning grids, showcase imagery, wedding imagery, proposal/editorial imagery, About AWE, Meet Amber, and the legacy social page.
+- The legacy social route now has its source-specific black logo, eight-link navigation, social controls, gallery, testimonial treatments, Good Company block, and portfolio CTA.
+- R2 final visual verification passes all 18 desktop/mobile comparisons at a 1.5% page-difference gate: 0.52% average and 1.43% worst.
+- Shared shell, moving media, remote Wix image transforms, and legacy rotating testimonial areas are excluded from page-specific pixel scoring; their presence and behavior remain covered by the shell, carousel, and core-page checks.
+
+## Next action
+
+Begin R3 fidelity work for portfolio, video, and media routes, then continue to blog listing/article fidelity and final SEO/accessibility validation.

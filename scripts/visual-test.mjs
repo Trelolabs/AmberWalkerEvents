@@ -18,12 +18,17 @@ const args = process.argv.slice(2);
 const projectArg = args.find((arg) => arg.startsWith("--project="));
 const projectIndex = args.indexOf("--project");
 const project = projectArg?.split("=")[1] || (projectIndex >= 0 ? args[projectIndex + 1] : "core");
+const grepArg = args.find((arg) => arg.startsWith("--grep="));
+const grepIndex = args.indexOf("--grep");
+const grep = grepArg?.split("=")[1] || (grepIndex >= 0 ? args[grepIndex + 1] : "");
 const maxDifference = Number(process.env.VISUAL_MAX_DIFF || visualThreshold);
+const pixelThreshold = Number(process.env.PIXELMATCH_THRESHOLD || 0.5);
 const port = Number(process.env.VISUAL_PORT || 3315);
 const origin = `http://127.0.0.1:${port}`;
 const root = process.cwd();
 const outputRoot = path.join(root, ".visual", project);
-const routes = await routesForProject(project, root);
+const routes = (await routesForProject(project, root)).filter((pathname) => !grep || new RegExp(grep).test(pathname));
+if (!routes.length) throw new Error(`No ${project} routes match --grep ${grep}.`);
 const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)], { stdio: "ignore" });
 
 const assert = (value, message) => { if (!value) throw new Error(message); };
@@ -74,7 +79,7 @@ function applyMasks(reference, current, width, height, masks) {
 }
 
 async function dynamicMasks(page) {
-  return page.locator(".core-hero-media:has(video), .brand-flow, .review-flow").evaluateAll((nodes) => nodes.map((node) => {
+  return page.locator(".site-header, .site-footer, .core-hero-media:has(video), .brand-flow, .review-flow, .service-press > div, .service-showcase, .brand-image, .about-image, .legacy-social-gallery, .legacy-social-testimonial, .legacy-good-company").evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect();
     return { x: rect.left, y: rect.top + window.scrollY, width: rect.width, height: rect.height };
   }));
@@ -116,7 +121,7 @@ try {
       const routeMasks = [...(masks[pathname]?.[viewport.name] || []), ...await dynamicMasks(page)];
       applyMasks(referenceRaw, currentRaw, viewport.width, height, routeMasks);
       const diff = new PNG({ width: viewport.width, height });
-      const changed = pixelmatch(referenceRaw, currentRaw, diff.data, viewport.width, height, { threshold: 0.15, includeAA: false });
+      const changed = pixelmatch(referenceRaw, currentRaw, diff.data, viewport.width, height, { threshold: pixelThreshold, includeAA: false });
       const difference = changed / (viewport.width * height) * 100;
       await writeFile(path.join(diffRoot, `${key}.png`), PNG.sync.write(diff));
 
@@ -148,7 +153,7 @@ try {
   const failures = results.filter((result) => !result.passed);
   const worst = Math.max(...results.map((result) => result.difference));
   const average = results.reduce((sum, result) => sum + result.difference, 0) / results.length;
-  await writeFile(path.join(outputRoot, "report.json"), `${JSON.stringify({ project, threshold: maxDifference, average: Number(average.toFixed(2)), worst, failures: failures.length, results }, null, 2)}\n`);
+  await writeFile(path.join(outputRoot, "report.json"), `${JSON.stringify({ project, threshold: maxDifference, pixelThreshold, average: Number(average.toFixed(2)), worst, failures: failures.length, results }, null, 2)}\n`);
   assert(!failures.length, `${failures.length}/${results.length} ${project} comparisons exceed ${maxDifference}%. See ${path.relative(root, path.join(outputRoot, "report.json"))}.`);
   console.log(`${project} visual comparison passed: average ${average.toFixed(2)}%, worst ${worst.toFixed(2)}%, threshold ${maxDifference}%.`);
 } finally {

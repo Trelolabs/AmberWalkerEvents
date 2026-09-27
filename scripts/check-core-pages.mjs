@@ -4,6 +4,7 @@ import { setTimeout as delay } from "node:timers/promises";
 
 const paths = ["/", "/proposalweddingvideos", "/meetamber", "/blog", "/proposaltips", "/weddingplanning", "/corporatesocialportfolio", "/socialevents", "/media", "/contact", "/corporateevents", "/copy-of-social-events", "/proposalplanning", "/corporatesocialvideos", "/aboutawe", "/proposalweddingportfolio"];
 const goodCompanyPaths = new Set(["/", "/corporateevents", "/socialevents", "/weddingplanning", "/proposalplanning"]);
+const brandFlowPaths = new Set(["/", "/corporateevents", "/socialevents"]);
 const port = 3313;
 const origin = `http://127.0.0.1:${port}`;
 const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)], { stdio: "ignore" });
@@ -33,10 +34,10 @@ try {
     if (goodCompanyPaths.has(pathname)) {
       const goodCompany = page.locator('[data-home-section="good-company"]');
       assert(await goodCompany.count(), `${pathname} Good Company section is missing.`);
-      assert((await page.locator(".brand-flow img").count()) === 50, `${pathname} does not render the duplicated 25-logo marquee.`);
+      assert((await page.locator(".brand-flow img").count()) === (brandFlowPaths.has(pathname) ? 50 : 0), `${pathname} renders the wrong Good Company brand treatment.`);
       assert((await page.locator(".testimonial-slide").count()) === 12, `${pathname} does not render all twelve source testimonial cards.`);
       await goodCompany.scrollIntoViewIfNeeded();
-      await page.waitForFunction(() => document.querySelector(".brand-flow img")?.naturalWidth > 0);
+      if (brandFlowPaths.has(pathname)) await page.waitForFunction(() => document.querySelector(".brand-flow img")?.naturalWidth > 0);
     } else {
       assert(!(await page.locator('[data-home-section="good-company"]').count()), `${pathname} incorrectly duplicates the homepage Good Company section.`);
     }

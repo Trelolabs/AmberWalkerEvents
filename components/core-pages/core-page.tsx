@@ -49,6 +49,12 @@ const proposalLocations = [
 function images(page: CorePageRecord) { return page.media.filter((media) => media.type.startsWith("image/")); }
 function videos(page: CorePageRecord) { return page.media.filter((media) => media.type.startsWith("video/")); }
 function paragraphs(page: CorePageRecord) { return page.lines.filter((line) => line.length > 90); }
+function displayMedia(page: "corporateevents" | "socialevents", group: "card" | "showcase", count: number): CoreMedia[] {
+  return Array.from({ length: count }, (_, index) => ({ src: `/media/services/display/${page}-${group}-${String(index + 1).padStart(2, "0")}.jpg`, type: "image/jpeg", source: "frozen Wix display derivative" }));
+}
+function displayAsset(filename: string): CoreMedia {
+  return { src: `/media/services/display/${filename}`, type: "image/avif", source: "frozen Wix display derivative" };
+}
 
 function MediaImage({ media, alt, priority = false }: { media: CoreMedia; alt: string; priority?: boolean }) {
   return <Image src={media.src} alt={alt} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} loading={priority ? undefined : "eager"} unoptimized />;
@@ -118,14 +124,13 @@ function ServicePage({ page, route }: { page: CorePageRecord; route: RouteRecord
 
   if (route.pathname === "/corporateevents" || route.pathname === "/socialevents") {
     const labels = eventPlans[route.pathname];
-    const showcaseTokens = route.pathname === "/corporateevents" ? ["faa16b9d", "9130be9b"] : ["ada3d921", "b87a0c02"];
-    const showcase = showcaseTokens.map((token) => pageImages.find((media) => media.src.includes(token))).filter((media): media is CoreMedia => Boolean(media));
+    const displayPage = route.pathname.slice(1) as "corporateevents" | "socialevents";
     return <main className={`service-page event-service-page ${route.pathname === "/socialevents" ? "social-event-page" : "corporate-event-page"}`}>
       {hero}
       <section className="service-copy service-intro">{paragraphs(page).slice(0, 3).map((text) => <p key={text}>{text}</p>)}</section>
       <ServicePress />
-      <ServicePlanning media={pageImages.slice(23, 35)} labels={labels} />
-      <ServiceShowcase media={showcase} />
+      <ServicePlanning media={displayMedia(displayPage, "card", 12)} labels={labels} />
+      <ServiceShowcase media={displayMedia(displayPage, "showcase", 2)} />
       <ServiceCta />
       <GoodCompanySection />
       <ServicePortfolioLinks />
@@ -137,10 +142,10 @@ function ServicePage({ page, route }: { page: CorePageRecord; route: RouteRecord
     return <main className="service-page wedding-service-page">
       {hero}
       <section className="service-copy service-intro">{[page.lines[3], page.lines[5], page.lines[7]].filter(Boolean).map((text) => <p key={text}>{text}</p>)}</section>
-      <section className="wedding-service-feature"><div><h2>WHERE LOVE MEETS LUXURY</h2>{weddingCopy.map((text) => <p key={text}>{text}</p>)}</div><div className="wedding-service-image">{pageImages[3] ? <MediaImage media={pageImages[3]} alt="Luxury wedding reception" /> : null}<Link href="/contact">CALL US NOW</Link></div></section>
-      <ServiceShowcase media={pageImages.slice(4, 7)} />
+      <section className="wedding-service-feature"><div><h2>WHERE LOVE MEETS LUXURY</h2>{weddingCopy.map((text) => <p key={text}>{text}</p>)}</div><div className="wedding-service-image"><MediaImage media={displayAsset("wedding-feature.avif")} alt="Luxury wedding reception" /><Link href="/contact">CALL US NOW</Link></div></section>
+      <ServiceShowcase media={[1, 2, 3].map((index) => displayAsset(`wedding-gallery-${String(index).padStart(2, "0")}.avif`))} />
       <ServicePress tone="light" />
-      <GoodCompanySection />
+      <GoodCompanySection heading={false} brands={false} />
     </main>;
   }
 
@@ -149,23 +154,21 @@ function ServicePage({ page, route }: { page: CorePageRecord; route: RouteRecord
     {hero}
     <section className="service-copy service-intro">{[page.lines[3], page.lines[4]].map((text) => <p key={text}>{text}</p>)}</section>
     <ServicePress tone="lilac" />
-    <section className="service-proposal-package">{pageImages[23] ? <MediaImage media={pageImages[23]} alt="Proposal setting" /> : null}<div><h2>PROPOSAL PLANNING PACKAGE</h2>{packageItems.map((text) => <p key={text}>{text}</p>)}<Link href="/contact">CONTACT US FOR A FREE CONSULTATION</Link></div></section>
+    <section className="service-proposal-package"><MediaImage media={displayAsset("proposal-package.avif")} alt="Proposal setting" /><div><h2>PROPOSAL PLANNING PACKAGE</h2>{packageItems.map((text) => <p key={text}>{text}</p>)}<Link href="/contact">CONTACT US FOR A FREE CONSULTATION</Link></div></section>
     <section className="proposal-location-selector"><h2>CHOOSE YOUR PROPOSAL LOCATION</h2><div>{proposalLocations.map(([label, href], index) => <Link href={href} key={href} aria-label={label}>{pageImages[index + 24] ? <MediaImage media={pageImages[index + 24]} alt="" /> : <span>{label}</span>}</Link>)}</div></section>
-    <GoodCompanySection />
+    <GoodCompanySection brands={false} />
     <ServicePortfolioLinks proposal />
   </main>;
 }
 
 function AboutPage({ page, route }: { page: CorePageRecord; route: RouteRecord }) {
-  const pageImages = images(page);
-  const portrait = pageImages.find((media) => media.src.includes("a14ee68")) || pageImages[0];
   const copy = paragraphs(page);
   const title = page.lines.find((line) => line === "MEET AMBER" || line === "THE BRAND") || route.title;
   if (route.pathname === "/aboutawe") return <main className="about-page brand-page">
-    <section className="brand-layout"><div className="brand-copy"><h1>{title}</h1><p>{page.lines[1]}</p><p>{page.lines[2]}</p><ul>{page.lines.slice(3, 7).map((text) => <li key={text}>{text}</li>)}</ul><p>{page.lines[8]}</p><ul>{page.lines.slice(9, 14).map((text) => <li key={text}>{text}</li>)}</ul></div><div className="brand-image">{pageImages[1] ? <MediaImage media={pageImages[1]} alt="Amber Walker Events celebration" priority /> : null}</div></section>
+    <section className="brand-layout"><div className="brand-copy"><h1>{title}</h1><p>{page.lines[1]}</p><p>{page.lines[2]}</p><ul>{page.lines.slice(3, 7).map((text) => <li key={text}>{text}</li>)}</ul><p>{page.lines[8]}</p><ul>{page.lines.slice(9, 14).map((text) => <li key={text}>{text}</li>)}</ul></div><div className="brand-image"><MediaImage media={displayAsset("about-brand.avif")} alt="Amber Walker Events celebration" priority /></div></section>
     <ServicePress tone="light" />
   </main>;
-  return <main className="about-page"><section className="about-layout"><div className="about-image">{portrait ? <MediaImage media={portrait} alt={title} priority /> : null}</div><div className="about-copy"><h1>{title}</h1>{copy.map((text) => <p key={text}>{text}</p>)}</div></section></main>;
+  return <main className="about-page"><section className="about-layout"><div className="about-image"><MediaImage media={displayAsset("meet-amber.avif")} alt={title} priority /></div><div className="about-copy"><h1>{title}</h1>{copy.map((text) => <p key={text}>{text}</p>)}</div></section></main>;
 }
 
 function GalleryPage({ page, route }: { page: CorePageRecord; route: RouteRecord }) {
@@ -193,7 +196,7 @@ function ContactPage() {
 
 function LegacySocialPage({ page }: { page: CorePageRecord }) {
   const testimonial = page.lines.find((line) => line.startsWith("Amber was fantastic"));
-  const galleryImages = images(page).slice(5, 7);
+  const galleryImages = [displayAsset("legacy-gallery-01.avif"), displayAsset("legacy-gallery-02.avif")];
   return <main className="legacy-social-page">
     <h1>BACHELOR/ETTE</h1>
     <section className="legacy-social-intro" aria-label="Bachelor and bachelorette event services">
@@ -209,6 +212,12 @@ function LegacySocialPage({ page }: { page: CorePageRecord }) {
     </section>
     <section className="legacy-social-gallery">{galleryImages.map((media, index) => <div key={media.src}><MediaImage media={media} alt={`Bachelor and bachelorette event ${index + 1}`} /></div>)}</section>
     <section className="legacy-social-cta"><h2>SCHEDULE A CALL WITH AMBER NOW</h2><Link href="/contact">SCHEDULE NOW</Link></section>
+    <section className="legacy-good-company">
+      <h2>YOU&apos;RE IN GOOD COMPANY</h2>
+      <div className="legacy-client-logos"><span /><span /><div><Image src="/media/home/1a6711-0603a6063d1b4830b3b21dca5602929a-mv2-c8acd2cc6d.png" alt="St. Regis" fill sizes="251px" unoptimized /></div></div>
+      <blockquote>{testimonial}<cite>Meghan Spiteri<br />Shoppers World Brampton, RioCan</cite></blockquote>
+      <div className="legacy-dots" aria-hidden="true">• • • • • •</div>
+    </section>
     <section className="legacy-social-portfolio"><h2>VIEW OUR EVENT PORTFOLIO</h2><Link href="/corporatesocialportfolio">CLICK HERE</Link></section>
   </main>;
 }
@@ -219,9 +228,9 @@ function EditorialPage({ page, route }: { page: CorePageRecord; route: RouteReco
     return <main className="editorial-page proposal-tips-page">
       <Hero page={page} title="LAGUNA BEACH PROPOSAL PLANNING" />
       <section className="service-copy service-intro">{[page.lines[1], page.lines[2]].map((text) => <p key={text}>{text}</p>)}</section>
-      <section className="proposal-tips-feature">{pageImages[2] ? <MediaImage media={pageImages[2]} alt="Oceanfront proposal setting" /> : null}<div><h2>PROPOSAL PLANNING TIPS</h2><Link href="/contact">CONTACT US FOR A FREE CONSULTATION</Link></div></section>
+      <section className="proposal-tips-feature"><MediaImage media={displayAsset("proposal-tips-feature.avif")} alt="Oceanfront proposal setting" /><div><h2>PROPOSAL PLANNING TIPS</h2><Link href="/contact">CONTACT US FOR A FREE CONSULTATION</Link></div></section>
       <ServicePress media={pageImages.slice(3, 17)} tone="lilac" />
-      <ServiceShowcase media={pageImages.slice(17, 20)} />
+      <ServiceShowcase media={[1, 2, 3].map((index) => displayAsset(`proposal-tips-gallery-${String(index).padStart(2, "0")}.avif`))} />
       <section className="proposal-review"><h2>WHAT PEOPLE SAY ABOUT US</h2><blockquote>{page.lines[7]}<cite>{page.lines[8]}</cite></blockquote><nav><Link href="/proposalweddingportfolio">CLICK HERE FOR PHOTO GALLERY</Link><Link href="/proposalweddingvideos">CLICK HERE FOR VIDEO GALLERY</Link></nav></section>
     </main>;
   }
