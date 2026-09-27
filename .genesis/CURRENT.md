@@ -78,3 +78,6 @@ Begin R2 with the four main service routes, then rebuild the supporting editoria
 - The user approved replacing the nine stale R2 mobile baselines, which encoded the clipped desktop canvas, with centered no-scroll responsive captures. Desktop source baselines remain locked.
 - Corporate and social desktop section geometry is calibrated to the frozen source boundaries; deterministic capture now waits for local fonts and static image decoding, while masks are limited to video and animated Good Company media.
 - Latest pre-rebaseline R2 result is 37.18% average / 58.06% worst. Corporate desktop is 7.43% and Contact desktop is 2.52%; wedding, proposal, editorial, legacy social, and about layouts remain above the 1.5% gate.
+- Source footer themes are restored for Wedding (white/lilac) and Proposal/Proposal Tips (lilac/black), reducing Wedding desktop from 28.98% to 18.50% and Proposal desktop from 37.92% to 28.87%.
+- Meet Amber now matches the 1,528px desktop reference height and improved from 16.01% to 6.52%; its portrait split and top-aligned copy are the current calibration target.
+- All nine approved responsive mobile baselines are refreshed; Wedding, Proposal, and Proposal Tips were recaptured again after their intentional footer-theme correction.

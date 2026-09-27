@@ -376,6 +376,16 @@ button, summary { font: inherit; }
 .inquiry-modal-panel.has-errors .inquiry-modal-heading { margin-top: 42px; }
 .site:has(.location-proposal) .site-footer { color: var(--awe-black); background: var(--awe-lilac); }
 .site:has(.location-wedding) .site-footer { color: var(--awe-lilac); background: var(--awe-white); border-top: 1px solid var(--awe-lilac); }
+.site:has(.proposal-service-page) .site-footer,
+.site:has(.proposal-tips-page) .site-footer { color: var(--awe-black); background: var(--awe-lilac); }
+.site:has(.wedding-service-page) .site-footer { color: var(--awe-lilac); background: var(--awe-white); border-top: 1px solid var(--awe-lilac); }
+
+@media (min-width: 768px) {
+  .site:has(.about-page:not(.brand-page)) .about-layout { min-height: 689px; grid-template-columns: 44.45% 1fr; }
+  .site:has(.about-page:not(.brand-page)) .about-copy { align-self: start; max-width: 800px; padding: 28px 18px; }
+  .site:has(.about-page:not(.brand-page)) .about-copy p { font-size: 20px; line-height: 1.45; }
+  .site:has(.about-page:not(.brand-page)) .site-footer { min-height: 564px; }
+}
 
 @media (min-width: 768px) and (max-height: 760px) {
   .inquiry-modal-close { top: 72px; }
