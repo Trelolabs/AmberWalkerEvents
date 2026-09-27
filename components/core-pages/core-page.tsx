@@ -4,6 +4,7 @@ import type { CoreMedia, CorePageRecord } from "@/src/content/core-pages.generat
 import type { RouteRecord } from "@/src/content/routes.generated";
 import { GoodCompanySection } from "./good-company-section";
 import { HomeHeroCarousel } from "./home-hero-carousel";
+import { MediaFeature, PortfolioGallery, VideoGallery } from "./rich-media";
 
 const pressLogos = [
   ["US Weekly", "/media/home/display/press-01.avif"],
@@ -172,16 +173,24 @@ function AboutPage({ page, route }: { page: CorePageRecord; route: RouteRecord }
 }
 
 function GalleryPage({ page, route }: { page: CorePageRecord; route: RouteRecord }) {
-  const pageImages = images(page).filter((media) => !media.src.includes("11062b-")).slice(0, 36);
+  const pageImages = images(page).filter((media) => !media.src.includes("11062b-")).slice(1, 17).map((media) => ({
+    ...media,
+    src: `/media/portfolio/display/${media.src.split("/").at(-1)?.replace(/\.[^.]+$/, ".avif")}`,
+  }));
   const heading = route.pathname === "/proposalweddingportfolio" ? "PROPOSAL GALLERY" : "EVENT PORTFOLIO";
-  return <main className="gallery-page"><h1>{heading}</h1><section className="gallery-grid">{pageImages.map((media, index) => <figure key={media.src}><MediaImage media={media} alt={`${heading} image ${index + 1}`} /></figure>)}</section></main>;
+  return <PortfolioGallery heading={heading} images={pageImages} proposal={route.pathname === "/proposalweddingportfolio"} />;
 }
 
 function VideoPage({ page, route }: { page: CorePageRecord; route: RouteRecord }) {
-  const pageVideos = videos(page);
-  const posters = images(page);
-  const heading = route.pathname === "/corporatesocialvideos" ? "EVENT PORTFOLIO" : route.pathname === "/media" ? "MEDIA" : "PROPOSAL VIDEO GALLERY";
-  return <main className="video-page"><h1>{heading}</h1><section className="video-grid">{(pageVideos.length ? pageVideos : posters.slice(0, 6)).map((media, index) => <div className="video-frame" key={media.src}>{media.type.startsWith("video/") ? <video src={media.src} poster={posters[index]?.src} controls preload="metadata" /> : <MediaImage media={media} alt={`${heading} feature ${index + 1}`} />}</div>)}</section></main>;
+  if (route.pathname === "/media") return <MediaFeature logos={pressLogos} />;
+  const posters = images(page).filter((media) => media.source.includes("f002"));
+  const proposal = route.pathname === "/proposalweddingvideos";
+  const titles = proposal ? ["Hamptons", "JW Muskoka", "Daphne and Andrew Highlight Film", "Bisha Private Room"] : ["LLAS", "Canaroma 2024", "HBNG", "Dolce Lighting Long"];
+  const sources = proposal
+    ? ["/media/locations/proposalplanning/file-0cfab101ed.mp4", "/media/locations/muskokaproposalplanning/file-b9340e1667.mp4", "/media/pages/weddingplanning/file-8431932506.mp4", "/media/locations/torontoproposalplanning/file-f3d1d86dc6.mp4"]
+    : ["/media/blog/llds/file-3b4aaba6d8.mp4", "/media/blog/canaroma/file-a3488e0ac7.mp4", "/media/blog/hbng/file-bed5ae2a0b.mp4", "/media/pages/socialevents/file-790c896546.mp4"];
+  const slides = posters.slice(0, 4).map((poster, index) => ({ title: titles[index], poster: poster.src, video: sources[index] }));
+  return <VideoGallery heading={proposal ? "PROPOSAL VIDEO GALLERY" : "EVENT PORTFOLIO"} slides={slides} proposal={proposal} />;
 }
 
 function BlogPage({ page }: { page: CorePageRecord }) {

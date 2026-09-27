@@ -177,15 +177,51 @@ button, summary { font: inherit; }
 .brand-copy ul { margin: -14px 0 26px; padding-left: 32px; }
 .brand-image { position: relative; min-height: 770px; }
 .brand-image img { object-fit: cover; }
-.gallery-page, .video-page, .blog-page, .contact-page { min-height: 600px; padding: 36px max(20px, 7vw) 80px; }
-.gallery-page, .video-page { background: var(--awe-white); }
-.gallery-page h1, .video-page h1, .blog-page h1, .contact-page > h1 { margin: 0 0 30px; text-align: center; font-size: clamp(30px, 3vw, 44px); }
-.gallery-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
-.gallery-grid figure { position: relative; aspect-ratio: 1; margin: 0; overflow: hidden; }
-.video-grid { max-width: 1050px; margin: auto; display: grid; gap: 28px; }
-.video-frame { position: relative; aspect-ratio: 16/9; background: #111; }
-.video-frame video { width: 100%; height: 100%; object-fit: cover; }
+.gallery-page, .video-page, .media-page, .blog-page, .contact-page { min-height: 600px; }
+.gallery-page, .video-page, .media-page { background: var(--awe-white); }
+.gallery-page h1, .video-page h1, .media-page > h1, .blog-page h1, .contact-page > h1 { margin: 0; display: grid; place-items: center; text-align: center; font-size: 40px; line-height: 1; }
+.gallery-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+.event-gallery-page .gallery-grid { width: 90%; margin-inline: auto; }
+.gallery-grid > button { position: relative; aspect-ratio: 1; min-width: 0; margin: 0; padding: 0; overflow: hidden; border: 0; background: var(--awe-black); cursor: zoom-in; }
+.gallery-grid img { object-fit: cover; }
+.proposal-gallery-page h1, .proposal-video-page h1, .media-page > h1 { color: var(--awe-lilac); font-weight: 400; }
+.portfolio-lightbox { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: rgb(0 0 0 / .96); overflow: hidden; }
+.portfolio-lightbox::backdrop { background: rgb(0 0 0 / .86); }
+.portfolio-lightbox-frame { position: relative; width: 100%; height: 100%; }
+.portfolio-lightbox-frame > img { object-fit: contain; padding: 5dvh 7vw 8dvh; }
+.portfolio-lightbox button { position: absolute; z-index: 1; border: 0; color: var(--awe-white); background: transparent; cursor: pointer; }
+.portfolio-lightbox-close { top: 16px; right: 18px; width: 48px; height: 48px; font: 42px/1 Arial, sans-serif; }
+.portfolio-lightbox-previous, .portfolio-lightbox-next { top: 50%; width: 58px; height: 80px; font: 58px/1 Arial, sans-serif; transform: translateY(-50%); }
+.portfolio-lightbox-previous { left: 8px; }
+.portfolio-lightbox-next { right: 8px; }
+.portfolio-lightbox-frame > span { position: absolute; bottom: 20px; left: 50%; color: var(--awe-white); font: 14px/1 var(--font-editorial); transform: translateX(-50%); }
+.video-carousel { position: relative; width: min(980px, 100%); margin-inline: auto; background: var(--awe-black); }
+.video-stage { position: relative; aspect-ratio: 980 / 551; overflow: hidden; background: var(--awe-black); }
+.video-stage > img, .video-stage video { width: 100%; height: 100%; object-fit: cover; }
+.video-stage-shade { position: absolute; inset: 0; background: rgb(0 0 0 / .25); }
+.video-play { position: absolute; top: 50%; left: 50%; display: flex; align-items: center; gap: 10px; padding: 0 0 5px; border: 0; border-bottom: 1px solid currentColor; color: var(--awe-white); background: transparent; font: 20px/1 var(--font-display); cursor: pointer; transform: translate(-50%, -50%); }
+.video-play > span { width: 38px; height: 38px; display: grid; place-items: center; border: 2px solid currentColor; border-radius: 50%; font-size: 14px; }
+.video-carousel-controls { height: 40px; display: grid; place-items: center; background: var(--awe-black); }
+.proposal-video-page .video-carousel-controls { background: var(--awe-lilac); }
+.video-carousel-controls button { width: 40px; height: 32px; padding: 0; border: 0; color: var(--awe-white); background: transparent; font-size: 0; cursor: pointer; }
+.video-carousel-controls button::before { content: ""; width: 23px; height: 15px; display: block; margin: auto; border-block: 2px solid currentColor; background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat; }
+.video-carousel-menu { position: absolute; z-index: 2; right: 0; bottom: 40px; left: 0; padding: 6px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; background: rgb(0 0 0 / .9); }
+.video-carousel-menu button { position: relative; aspect-ratio: 16 / 9; padding: 0; overflow: hidden; border: 1px solid transparent; color: var(--awe-white); background: var(--awe-black); cursor: pointer; }
+.video-carousel-menu button[aria-current="true"] { border-color: var(--awe-white); }
+.video-carousel-menu img { object-fit: cover; opacity: .72; }
+.video-carousel-menu span { position: absolute; z-index: 1; right: 5px; bottom: 5px; left: 5px; font-size: 10px; text-shadow: 0 1px 3px #000; }
+.media-page > h1 { height: 98px; }
+.media-video { position: relative; width: min(710px, calc(100% - 32px)); aspect-ratio: 710 / 400; margin: 0 auto; display: block; overflow: hidden; background: var(--awe-black); }
+.media-video img { object-fit: cover; }
+.media-video > span { position: absolute; top: 50%; left: 50%; width: 49px; height: 49px; display: grid; place-items: center; padding-left: 3px; border: 3px solid var(--awe-white); border-radius: 50%; color: var(--awe-white); font-size: 20px; transform: translate(-50%, -50%); }
+.media-press { padding-top: 34px; text-align: center; }
+.media-press h2 { margin: 0 0 13px; font-size: 20px; line-height: 35px; letter-spacing: 3px; }
+.media-press > div { width: 980px; max-width: 100%; margin: auto; display: grid; grid-template-columns: repeat(7, 100px); grid-auto-rows: 100px; gap: 0 46.6667px; }
+.media-press span { position: relative; }
+.media-press img { object-fit: contain; filter: grayscale(1); }
 .blog-page, .contact-page { color: var(--awe-white); background: var(--awe-black); }
+.blog-page, .contact-page { padding: 36px max(20px, 7vw) 80px; }
+.blog-page h1, .contact-page > h1 { margin-bottom: 30px; }
 .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
 .blog-grid a > div { position: relative; aspect-ratio: 16/10; overflow: hidden; }
 .blog-grid h2 { margin: 16px 0 8px; font-size: 22px; font-weight: 400; }
@@ -510,10 +546,23 @@ button, summary { font: inherit; }
 .site:has(.location-proposal) .site-footer { color: var(--awe-black); background: var(--awe-lilac); }
 .site:has(.location-wedding) .site-footer { color: var(--awe-lilac); background: var(--awe-white); border-top: 1px solid var(--awe-lilac); }
 .site:has(.proposal-service-page) .site-footer,
-.site:has(.proposal-tips-page) .site-footer { color: var(--awe-black); background: var(--awe-lilac); }
+.site:has(.proposal-tips-page) .site-footer,
+.site:has(.proposal-gallery-page) .site-footer,
+.site:has(.proposal-video-page) .site-footer,
+.site:has(.media-page) .site-footer { color: var(--awe-black); background: var(--awe-lilac); }
 .site:has(.wedding-service-page) .site-footer { color: var(--awe-lilac); background: var(--awe-white); border-top: 1px solid var(--awe-lilac); }
 
 @media (min-width: 768px) {
+  .event-gallery-page { height: 1139px; min-height: 1139px; padding: 0; }
+  .event-gallery-page h1 { height: 88px; font-weight: 700; }
+  .proposal-gallery-page { height: 1229px; min-height: 1229px; padding: 0; }
+  .proposal-gallery-page h1 { height: 78px; }
+  .event-video-page, .proposal-video-page { height: 730px; min-height: 730px; padding: 0; }
+  .event-video-page h1 { height: 89px; font-weight: 700; }
+  .proposal-video-page h1 { height: 108px; }
+  .media-page { height: 991px; min-height: 991px; }
+  .site:has(.event-gallery-page) .site-footer,
+  .site:has(.event-video-page) .site-footer { height: 567px; min-height: 567px; }
   .site:has(.about-page:not(.brand-page)) .about-layout { min-height: 687px; height: 687px; }
   .site:has(.about-page:not(.brand-page)) .about-image { min-height: 687px; height: 687px; }
   .site:has(.about-page:not(.brand-page)) .site-footer { min-height: 566px; height: 566px; }
@@ -593,8 +642,19 @@ button, summary { font: inherit; }
   .brand-layout { grid-template-columns: 1fr; }
   .brand-copy { padding: 36px 22px; font-size: 15px; }
   .brand-image { min-height: 500px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-page, .video-page, .blog-page, .contact-page { padding-inline: 15px; }
+  .gallery-page, .video-page, .media-page { min-height: 0; padding: 0 0 20px; }
+  .gallery-page h1, .video-page h1, .media-page > h1 { height: 80px; padding-inline: 14px; font-size: 30px; white-space: nowrap; }
+  .proposal-video-page h1 { font-size: 25px; }
+  .gallery-grid, .event-gallery-page .gallery-grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+  .video-carousel { width: 100%; }
+  .video-play { font-size: 16px; }
+  .video-play > span { width: 32px; height: 32px; }
+  .video-carousel-menu { grid-template-columns: repeat(2, 1fr); }
+  .media-page > h1 { height: 80px; }
+  .media-video { width: calc(100% - 24px); }
+  .media-press { padding: 28px 15px 8px; }
+  .media-press > div { width: 340px; grid-template-columns: repeat(3, 100px); justify-content: space-between; }
+  .blog-page, .contact-page { padding-inline: 15px; }
   .contact-locations { grid-template-columns: 1fr; gap: 14px; }
   .contact-locations p { margin-bottom: 24px; }
   .contact-locations section > div { height: 260px; }

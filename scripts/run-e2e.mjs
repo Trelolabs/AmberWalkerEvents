@@ -6,13 +6,15 @@ const grep = (grepIndex >= 0 ? args[grepIndex + 1] : "").toLowerCase();
 const checks = new Set();
 if (grep.includes("shared shell")) checks.add("scripts/check-shared-shell.mjs");
 if (grep.includes("homepage") || grep.includes("carousel")) checks.add("scripts/check-homepage-interactions.mjs");
-if (grep.includes("core page") || grep.includes("service") || grep.includes("editorial") || grep.includes("portfolio") || grep.includes("video") || grep.includes("media")) checks.add("scripts/check-core-pages.mjs");
+if (grep.includes("core page") || grep.includes("service") || grep.includes("editorial")) checks.add("scripts/check-core-pages.mjs");
+if (grep.includes("portfolio") || grep.includes("video") || grep.includes("media")) checks.add("scripts/check-rich-media.mjs");
 if (grep.includes("location route")) checks.add("scripts/check-location-pages.mjs");
 if (grep.includes("blog article")) checks.add("scripts/check-route-completeness.mjs");
 if (!checks.size) {
   checks.add("scripts/check-shared-shell.mjs");
   checks.add("scripts/check-homepage-interactions.mjs");
   checks.add("scripts/check-core-pages.mjs");
+  checks.add("scripts/check-rich-media.mjs");
   checks.add("scripts/check-location-pages.mjs");
   checks.add("scripts/check-route-completeness.mjs");
 }

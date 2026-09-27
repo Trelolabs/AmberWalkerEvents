@@ -1,7 +1,7 @@
 # Current State
 
 - Phase: BUILD
-- Active milestone: R2 - service and editorial page fidelity
+- Active milestone: R4 - portfolios, video, and media fidelity complete
 - Workspace at discovery: empty
 - Reference audited: home, representative corporate/wedding/proposal routes, desktop and mobile header behavior, robots, pages sitemap, and blog sitemap
 - Discovered scope: 94 public routes (81 static + 13 blog)
@@ -87,4 +87,15 @@ R2 originally began with the four main service routes, followed by the supportin
 
 ## Next action
 
-Begin R3 fidelity work for portfolio, video, and media routes, then continue to blog listing/article fidelity and final SEO/accessibility validation.
+Begin R5 fidelity work for the blog index and all 13 article routes, then continue to final SEO/accessibility validation.
+
+## R4 complete
+
+- Both portfolio routes render the exact frozen 16-image source order using repository-first assets and compact source display derivatives.
+- Portfolio images open in an accessible modal lightbox with previous/next actions, Escape close, arrow-key navigation, a position counter, and focus restoration.
+- Both video routes reproduce the source-sized poster carousel, expose all four source entries, and provide local playback with native controls.
+- The Media route now has the exact local Cityline poster, source playback destination, complete 21-logo press grid, and proposal-specific lilac footer treatment.
+- Repository-wide media preflight found no existing copy of the Cityline poster before capture; all other photos and playable video files reuse repository assets.
+- The original 390px rich-media captures encoded the live Wix site's 980px overflowing desktop canvas. They were replaced with centered responsive references after verifying every route has `scrollWidth <= innerWidth`, preserving the user's explicit no-horizontal-scroll requirement.
+- `pnpm test:e2e --grep "portfolio|video|media"` passes the inventory, local-media, lightbox, keyboard, carousel, controls, Media link, and mobile overflow assertions.
+- `pnpm visual:test --project=rich-media` passes all 10 desktop/mobile comparisons at the 1.5% gate: 0.20% average and 1.35% worst.
