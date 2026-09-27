@@ -11,5 +11,6 @@ export function ShellPage({ pathname }: { pathname: string }) {
   if (!route) notFound();
   const corePage = corePageByPath.get(pathname);
   const locationPage = locationPageByPath.get(pathname);
-  return <SiteShell theme={route.theme} proposal={locationPage?.family === "proposal"}>{corePage ? <CorePage page={corePage} route={route} /> : locationPage ? <LocationPage page={locationPage} /> : <main className="milestone-placeholder"><p>PAGE CONTENT</p><h1>{route.headings[0] || "Amber Walker Events"}</h1></main>}</SiteShell>;
+  const proposal = locationPage?.family === "proposal" || pathname === "/proposalplanning" || pathname === "/proposaltips";
+  return <SiteShell theme={route.theme} proposal={proposal}>{corePage ? <CorePage page={corePage} route={route} /> : locationPage ? <LocationPage page={locationPage} /> : <main className="milestone-placeholder"><p>PAGE CONTENT</p><h1>{route.headings[0] || "Amber Walker Events"}</h1></main>}</SiteShell>;
 }

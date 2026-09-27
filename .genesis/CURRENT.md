@@ -66,3 +66,12 @@ Begin R2 with the four main service routes, then rebuild the supporting editoria
 - Inquiry validation now mirrors the live form with nine field-level messages, red invalid borders, accessible error references, first-error focus, and source Futura/Helvetica control typography.
 - Modal sizing now uses one centered 90% content scale so its logo, contact typography, controls, spacing, close action, and form reduce proportionally; desktop and 1063x635 browser assertions verify the rendered alignment.
 - Modal close-icon polish reduces the oversized glyph while preserving a 48px accessible control target.
+
+## R2 implementation in progress
+
+- The four service routes now use source-specific sections instead of the generic hero/copy/gallery approximation: corporate and social press/planning/showcase content, wedding editorial/gallery content, and proposal package/location-selector content.
+- The live corporate reference confirms Good Company belongs on service pages; all four main service routes now include its complete brand and testimonial flows followed by the appropriate portfolio links.
+- Proposal Tips, the legacy social page, About AWE, and Contact now include their previously missing source sections; Contact uses the corrected addresses and a safe client-validated form.
+- Functional gates pass, but the strict R2 visual gate remains open: 18/18 desktop/mobile comparisons are still above 1.5% and require route-specific calibration.
+- Latest R2 visual baseline after structural reconstruction: 45.67% average, 61.48% worst; the remaining work is visual calibration rather than missing route structure.
+- Responsive overflow correction removes the legacy 980px homepage canvas and 1126px mobile service grid; animated logo/testimonial tracks remain internally contained without creating document-level horizontal scrolling.

@@ -88,6 +88,7 @@ try {
 
   const laptop = await browser.newPage({ viewport: { width: 1063, height: 635 } });
   await laptop.goto(origin, { waitUntil: "domcontentloaded" });
+  assert(await laptop.evaluate(() => document.documentElement.scrollWidth === innerWidth), "Homepage has horizontal document overflow at laptop width.");
   const laptopFooterAction = laptop.locator(".footer-action-carousel");
   await laptopFooterAction.scrollIntoViewIfNeeded();
   await laptopFooterAction.hover();
@@ -115,6 +116,7 @@ try {
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await mobile.goto(origin, { waitUntil: "domcontentloaded" });
+  assert(await mobile.evaluate(() => document.documentElement.scrollWidth === innerWidth), "Homepage has horizontal document overflow on mobile.");
   await mobile.locator(".review-flow").scrollIntoViewIfNeeded();
   const reviewFlow = mobile.locator(".review-flow");
   const scrollable = await reviewFlow.evaluate((node) => node.scrollWidth > node.clientWidth);
