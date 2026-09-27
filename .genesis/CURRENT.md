@@ -71,7 +71,10 @@ Begin R2 with the four main service routes, then rebuild the supporting editoria
 
 - The four service routes now use source-specific sections instead of the generic hero/copy/gallery approximation: corporate and social press/planning/showcase content, wedding editorial/gallery content, and proposal package/location-selector content.
 - The live corporate reference confirms Good Company belongs on service pages; all four main service routes now include its complete brand and testimonial flows followed by the appropriate portfolio links.
-- Proposal Tips, the legacy social page, About AWE, and Contact now include their previously missing source sections; Contact uses the corrected addresses and a safe client-validated form.
+- Proposal Tips, the legacy social page, About AWE, and Contact now include their previously missing source sections; Contact uses the corrected addresses while the validated inquiry form remains in the shared source-matching modal.
 - Functional gates pass, but the strict R2 visual gate remains open: 18/18 desktop/mobile comparisons are still above 1.5% and require route-specific calibration.
 - Latest R2 visual baseline after structural reconstruction: 45.67% average, 61.48% worst; the remaining work is visual calibration rather than missing route structure.
 - Responsive overflow correction removes the legacy 980px homepage canvas and 1126px mobile service grid; animated logo/testimonial tracks remain internally contained without creating document-level horizontal scrolling.
+- The user approved replacing the nine stale R2 mobile baselines, which encoded the clipped desktop canvas, with centered no-scroll responsive captures. Desktop source baselines remain locked.
+- Corporate and social desktop section geometry is calibrated to the frozen source boundaries; deterministic capture now waits for local fonts and static image decoding, while masks are limited to video and animated Good Company media.
+- Latest pre-rebaseline R2 result is 37.18% average / 58.06% worst. Corporate desktop is 7.43% and Contact desktop is 2.52%; wedding, proposal, editorial, legacy social, and about layouts remain above the 1.5% gate.

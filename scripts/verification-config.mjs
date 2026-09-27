@@ -64,6 +64,11 @@ export async function captureFullPage(page, options = {}) {
       await new Promise((resolve) => setTimeout(resolve, 30));
     }
     window.scrollTo(0, 0);
+    await document.fonts.ready;
+    await Promise.race([
+      Promise.all([...document.images].map((image) => image.decode().catch(() => {}))),
+      new Promise((resolve) => setTimeout(resolve, 1000)),
+    ]);
   });
   await page.waitForTimeout(150);
   const viewportWidth = await page.evaluate(() => window.innerWidth);

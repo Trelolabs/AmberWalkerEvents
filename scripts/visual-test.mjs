@@ -73,6 +73,13 @@ function applyMasks(reference, current, width, height, masks) {
   }
 }
 
+async function dynamicMasks(page) {
+  return page.locator(".core-hero-media:has(video), .brand-flow, .review-flow").evaluateAll((nodes) => nodes.map((node) => {
+    const rect = node.getBoundingClientRect();
+    return { x: rect.left, y: rect.top + window.scrollY, width: rect.width, height: rect.height };
+  }));
+}
+
 let browser;
 try {
   await waitForServer();
@@ -106,7 +113,7 @@ try {
       assert(height > 0, `Could not determine screenshot height for ${pathname}.`);
       const referenceRaw = await normalize(referenceBuffer, viewport.width, height);
       const currentRaw = await normalize(currentBuffer, viewport.width, height);
-      const routeMasks = masks[pathname]?.[viewport.name] || [];
+      const routeMasks = [...(masks[pathname]?.[viewport.name] || []), ...await dynamicMasks(page)];
       applyMasks(referenceRaw, currentRaw, viewport.width, height, routeMasks);
       const diff = new PNG({ width: viewport.width, height });
       const changed = pixelmatch(referenceRaw, currentRaw, diff.data, viewport.width, height, { threshold: 0.15, includeAA: false });

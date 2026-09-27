@@ -4,7 +4,30 @@ import type { CoreMedia, CorePageRecord } from "@/src/content/core-pages.generat
 import type { RouteRecord } from "@/src/content/routes.generated";
 import { GoodCompanySection } from "./good-company-section";
 import { HomeHeroCarousel } from "./home-hero-carousel";
-import { ContactForm } from "./contact-form";
+
+const pressLogos = [
+  ["US Weekly", "/media/home/display/press-01.avif"],
+  ["Good Night New York", "/media/home/display/press-02.avif"],
+  ["Toronto Sun", "/media/home/display/press-03.avif"],
+  ["Fashion", "/media/home/display/press-04.avif"],
+  ["Breakfast Television", "/media/home/display/press-05.avif"],
+  ["The New York Times", "/media/home/display/press-06.avif"],
+  ["CP24", "/media/home/display/press-07.avif"],
+  ["Daily Mail", "/media/home/display/press-08.avif"],
+  ["Brides", "/media/home/display/press-09.avif"],
+  ["Toronto Star", "/media/home/display/press-10.avif"],
+  ["New You", "/media/home/display/press-11.avif"],
+  ["The Knot", "/media/home/display/press-12.avif"],
+  ["Narcity", "/media/home/display/press-13.avif"],
+  ["National Post", "/media/home/display/press-14.avif"],
+  ["LA Inquisitor", "/media/home/display/press-15.avif"],
+  ["Entertainment Tonight", "/media/home/display/press-16.avif"],
+  ["Hollywood", "/media/home/display/press-17.avif"],
+  ["Living Luxe", "/media/home/display/press-18.avif"],
+  ["Cityline", "/media/home/display/press-19.avif"],
+  ["Millennium", "/media/home/display/press-20.avif"],
+  ["Event Gurus", "/media/home/display/press-21.avif"],
+] as const;
 
 const galleryPaths = new Set(["/corporatesocialportfolio", "/proposalweddingportfolio"]);
 const videoPaths = new Set(["/corporatesocialvideos", "/proposalweddingvideos", "/media"]);
@@ -50,8 +73,9 @@ function Hero({ page, title, kicker }: { page: CorePageRecord; title: string; ki
   );
 }
 
-function ServicePress({ media, tone = "dark" }: { media: CoreMedia[]; tone?: "dark" | "lilac" | "light" }) {
-  return <section className={`service-press ${tone}`}><h2>AS SEEN ON</h2><div>{media.map((logo, index) => <span key={logo.src}><MediaImage media={logo} alt={`Press logo ${index + 1}`} /></span>)}</div></section>;
+function ServicePress({ tone = "dark", media }: { tone?: "dark" | "lilac" | "light"; media?: CoreMedia[] }) {
+  const logos = media?.map((logo, index) => [`Press logo ${index + 1}`, logo.src] as const) || pressLogos;
+  return <section className={`service-press ${tone}`}><h2>AS SEEN ON</h2><div>{logos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="100px" unoptimized /></span>)}</div></section>;
 }
 
 function ServicePlanning({ media, labels }: { media: CoreMedia[]; labels: readonly string[] }) {
@@ -72,29 +96,6 @@ function ServicePortfolioLinks({ proposal = false }: { proposal?: boolean }) {
 
 function HomePage({ page }: { page: CorePageRecord }) {
   const body = paragraphs(page)[0];
-  const pressLogos = [
-    ["US Weekly", "/media/home/display/press-01.avif"],
-    ["Good Night New York", "/media/home/display/press-02.avif"],
-    ["Toronto Sun", "/media/home/display/press-03.avif"],
-    ["Fashion", "/media/home/display/press-04.avif"],
-    ["Breakfast Television", "/media/home/display/press-05.avif"],
-    ["The New York Times", "/media/home/display/press-06.avif"],
-    ["CP24", "/media/home/display/press-07.avif"],
-    ["Daily Mail", "/media/home/display/press-08.avif"],
-    ["Brides", "/media/home/display/press-09.avif"],
-    ["Toronto Star", "/media/home/display/press-10.avif"],
-    ["New You", "/media/home/display/press-11.avif"],
-    ["The Knot", "/media/home/display/press-12.avif"],
-    ["Narcity", "/media/home/display/press-13.avif"],
-    ["National Post", "/media/home/display/press-14.avif"],
-    ["LA Inquisitor", "/media/home/display/press-15.avif"],
-    ["Entertainment Tonight", "/media/home/display/press-16.avif"],
-    ["Hollywood", "/media/home/display/press-17.avif"],
-    ["Living Luxe", "/media/home/display/press-18.avif"],
-    ["Cityline", "/media/home/display/press-19.avif"],
-    ["Millennium", "/media/home/display/press-20.avif"],
-    ["Event Gurus", "/media/home/display/press-21.avif"],
-  ] as const;
   const services = [
     ["EXCLUSIVE SOCIAL EVENTS", "/socialevents", "/media/home/display/service-social.avif"],
     ["BESPOKE CORPORATE EVENTS", "/corporateevents", "/media/home/display/service-corporate.avif"],
@@ -119,10 +120,10 @@ function ServicePage({ page, route }: { page: CorePageRecord; route: RouteRecord
     const labels = eventPlans[route.pathname];
     const showcaseTokens = route.pathname === "/corporateevents" ? ["faa16b9d", "9130be9b"] : ["ada3d921", "b87a0c02"];
     const showcase = showcaseTokens.map((token) => pageImages.find((media) => media.src.includes(token))).filter((media): media is CoreMedia => Boolean(media));
-    return <main className="service-page event-service-page">
+    return <main className={`service-page event-service-page ${route.pathname === "/socialevents" ? "social-event-page" : "corporate-event-page"}`}>
       {hero}
       <section className="service-copy service-intro">{paragraphs(page).slice(0, 3).map((text) => <p key={text}>{text}</p>)}</section>
-      <ServicePress media={pageImages.slice(2, 23)} />
+      <ServicePress />
       <ServicePlanning media={pageImages.slice(23, 35)} labels={labels} />
       <ServiceShowcase media={showcase} />
       <ServiceCta />
@@ -138,7 +139,7 @@ function ServicePage({ page, route }: { page: CorePageRecord; route: RouteRecord
       <section className="service-copy service-intro">{[page.lines[3], page.lines[5], page.lines[7]].filter(Boolean).map((text) => <p key={text}>{text}</p>)}</section>
       <section className="wedding-service-feature"><div><h2>WHERE LOVE MEETS LUXURY</h2>{weddingCopy.map((text) => <p key={text}>{text}</p>)}</div><div className="wedding-service-image">{pageImages[3] ? <MediaImage media={pageImages[3]} alt="Luxury wedding reception" /> : null}<Link href="/contact">CALL US NOW</Link></div></section>
       <ServiceShowcase media={pageImages.slice(4, 7)} />
-      <ServicePress media={pageImages.slice(24, 45)} tone="light" />
+      <ServicePress tone="light" />
       <GoodCompanySection />
     </main>;
   }
@@ -147,7 +148,7 @@ function ServicePage({ page, route }: { page: CorePageRecord; route: RouteRecord
   return <main className="service-page proposal-service-page">
     {hero}
     <section className="service-copy service-intro">{[page.lines[3], page.lines[4]].map((text) => <p key={text}>{text}</p>)}</section>
-    <ServicePress media={pageImages.slice(2, 23)} tone="lilac" />
+    <ServicePress tone="lilac" />
     <section className="service-proposal-package">{pageImages[23] ? <MediaImage media={pageImages[23]} alt="Proposal setting" /> : null}<div><h2>PROPOSAL PLANNING PACKAGE</h2>{packageItems.map((text) => <p key={text}>{text}</p>)}<Link href="/contact">CONTACT US FOR A FREE CONSULTATION</Link></div></section>
     <section className="proposal-location-selector"><h2>CHOOSE YOUR PROPOSAL LOCATION</h2><div>{proposalLocations.map(([label, href], index) => <Link href={href} key={href} aria-label={label}>{pageImages[index + 24] ? <MediaImage media={pageImages[index + 24]} alt="" /> : <span>{label}</span>}</Link>)}</div></section>
     <GoodCompanySection />
@@ -162,7 +163,7 @@ function AboutPage({ page, route }: { page: CorePageRecord; route: RouteRecord }
   const title = page.lines.find((line) => line === "MEET AMBER" || line === "THE BRAND") || route.title;
   if (route.pathname === "/aboutawe") return <main className="about-page brand-page">
     <section className="brand-layout"><div className="brand-copy"><h1>{title}</h1><p>{page.lines[1]}</p><p>{page.lines[2]}</p><ul>{page.lines.slice(3, 7).map((text) => <li key={text}>{text}</li>)}</ul><p>{page.lines[8]}</p><ul>{page.lines.slice(9, 14).map((text) => <li key={text}>{text}</li>)}</ul></div><div className="brand-image">{pageImages[1] ? <MediaImage media={pageImages[1]} alt="Amber Walker Events celebration" priority /> : null}</div></section>
-    <ServicePress media={pageImages.slice(2, 23)} tone="light" />
+    <ServicePress tone="light" />
   </main>;
   return <main className="about-page"><section className="about-layout"><div className="about-image">{portrait ? <MediaImage media={portrait} alt={title} priority /> : null}</div><div className="about-copy"><h1>{title}</h1>{copy.map((text) => <p key={text}>{text}</p>)}</div></section></main>;
 }
@@ -187,7 +188,7 @@ function BlogPage({ page }: { page: CorePageRecord }) {
 }
 
 function ContactPage() {
-  return <main className="contact-page"><div className="contact-locations"><section><h1>CALIFORNIA</h1><p>2219 Main Street, Unit 198,<br />Santa Monica, California<br /><strong>Phone: (310) 750 - 4585</strong></p><div aria-hidden="true" /></section><section><h1>TORONTO</h1><p>27 Bathurst Street,<br />Toronto, Ontario<br /><strong>Phone: (647) 444 - 5599</strong></p><div aria-hidden="true" /></section></div><ContactForm /></main>;
+  return <main className="contact-page"><div className="contact-locations"><section><h1>CALIFORNIA</h1><p>2219 Main Street, Unit 198,<br />Santa Monica, California<br /><strong>Phone: (310) 750 - 4585</strong></p><div aria-hidden="true" /></section><section><h1>TORONTO</h1><p>27 Bathurst Street,<br />Toronto, Ontario<br /><strong>Phone: (647) 444 - 5599</strong></p><div aria-hidden="true" /></section></div></main>;
 }
 
 function LegacySocialPage({ page }: { page: CorePageRecord }) {

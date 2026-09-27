@@ -42,10 +42,7 @@ try {
     }
   }
   await page.goto(`${origin}/contact`);
-  assert(await page.locator("form.contact-form").count(), "Contact form is missing.");
-  await page.locator("form.contact-form button").click();
-  assert((await page.locator("form.contact-form [aria-invalid=true]").count()) === 4, "Contact form validation is incomplete.");
-  assert(await page.locator('form.contact-form [name="name"]').evaluate((node) => node === document.activeElement), "Contact validation does not focus its first invalid field.");
+  assert(!(await page.locator("form.contact-form").count()), "Contact page incorrectly duplicates the modal inquiry form.");
   assert((await page.getByText("2219 Main Street, Unit 198,").count()) === 1, "Contact page has the wrong California address.");
   assert((await page.getByText("27 Bathurst Street,").count()) === 1, "Contact page has the wrong Toronto address.");
   for (const pathname of ["/corporateevents", "/socialevents"]) {
