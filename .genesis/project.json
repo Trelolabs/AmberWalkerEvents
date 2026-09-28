@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "project": {
+    "name": "CodePart",
+    "mode": "adopt",
+    "profile": "prototype",
+    "objective": "Define the project objective.",
+    "constraints": [],
+    "non_goals": [],
+    "trust_boundary": "local repository",
+    "created_at": "2026-09-28T09:56:19.206Z",
+    "updated_at": "2026-09-28T09:57:41.475Z"
+  },
+  "policy": {
+    "ponytail": "full",
+    "autonomy": "human-in-the-loop",
+    "learned_rule_promotion": "human-required",
+    "cleanup": "propose-only",
+    "traces": {
+      "storage": "local",
+      "commit_raw": false,
+      "redact_secrets": true
+    }
+  },
+  "lifecycle": {
+    "phase": "discovery",
+    "status": "ready",
+    "active_task": null,
+    "blocker": null,
+    "next_action": "Review the adoption report and confirm project invariants."
+  },
+  "commands": {
+    "test": {
+      "command": "npm test",
+      "status": "unverified",
+      "source": "package.json"
+    }
+  },
+  "workflow": null,
+  "artifacts": [],
+  "assumptions": [],
+  "invariants": [],
+  "decisions": [],
+  "knowledge": [],
+  "tasks": [],
+  "learning_proposals": [],
+  "cleanup_proposals": [],
+  "controls": [],
+  "attempts": [],
+  "authorizations": [],
+  "experiments": [],
+  "incidents": [],
+  "discovery": {
+    "files": 1630,
+    "languages": [
+      "javascript/typescript"
+    ],
+    "extensions": {
+      ".avif": 125,
+      ".css": 1,
+      ".gitattributes": 1,
+      ".gitignore": 1,
+      ".html": 94,
+      ".jpeg": 21,
+      ".jpg": 298,
+      ".json": 107,
+      ".mjs": 23,
+      ".mp4": 24,
+      ".png": 907,
+      ".ts": 7,
+      ".tsbuildinfo": 1,
+      ".tsx": 13,
+      ".woff2": 5,
+      ".yaml": 2
+    },
+    "commands": {
+      "test": {
+        "command": "npm test",
+        "status": "unverified",
+        "source": "package.json"
+      }
+    },
+    "legacy_genesis": true,
+    "revision": {
+      "commit": "d611b0c4553fbfe6c32fa47a753ed15b329c4c31",
+      "dirty": false,
+      "source_hash": "70fbf8f1c1066b9f6508046b0d3a2a1b40c32b94d4a5e45208f8ea9d92d09feb"
+    }
+  },
+  "checkpoint": {
+    "at": "2026-09-28T09:57:38.132Z",
+    "revision": {
+      "commit": "d611b0c4553fbfe6c32fa47a753ed15b329c4c31",
+      "dirty": true,
+      "source_hash": "70fbf8f1c1066b9f6508046b0d3a2a1b40c32b94d4a5e45208f8ea9d92d09feb"
+    },
+    "active_task": null,
+    "next_action": "Review the adoption report and confirm project invariants."
+  },
+  "legacy": {
+    "legacy_files": [
+      "CURRENT.md",
+      "DONE.html",
+      "KICKOFF.md",
+      "LOOPS.md",
+      "PLAN.md",
+      "ROUTES.md",
+      "context-graph.json",
+      "genesis.md",
+      "wiki/index.md"
+    ],
+    "preserved": true,
+    "unresolved": [
+      "legacy HTML and Markdown remain evidence; operational fields require review"
+    ]
+  }
+}
