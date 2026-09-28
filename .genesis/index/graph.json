@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "project": "CodePart",
-  "revision": "d611b0c4553fbfe6c32fa47a753ed15b329c4c31",
-  "sourceHash": "7efa06357731e8ad4587503d24cea7343fe877254d8ddb91d652eeffb60ac7fc",
+  "revision": "0018e0fd042d79cbcb7fedcdd8f212578ca1ad4e",
+  "sourceHash": "c1023174a19f4e74f78856fbef0164eddab131e3c989b24d9249d8b07f0fddb3",
   "provenance": {
     "tool": "genesis-graphizer",
     "method": "static-analysis",
@@ -67,7 +67,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "efa4a6435b69570fc480c264b353e76b8cef6e82c9779d9aa9b802eea8edb143"
+      "contentHash": "b498d827ad993d74ad3f92f6e7dba177225343a3992512df1dd82e9d7f7aa8d1"
     },
     {
       "id": "file:components/core-pages/home-hero-carousel.tsx",
@@ -157,7 +157,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "0f70629890b72a0a82e91972cc032c04b658b26c265373cb711cf576bfbf8fcc"
+      "contentHash": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
     },
     {
       "id": "file:next.config.ts",
@@ -217,7 +217,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "7106e4736b54ddbb70c78f1ec2b835cad6ba61924012c5fb0db1b566dea991d1"
+      "contentHash": "a8f0514b2872061a679840cca7ea2c1fe7284f9e7a293ce8d07b67d228a13fb4"
     },
     {
       "id": "file:scripts/check-homepage-interactions.mjs",
@@ -227,7 +227,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "227b31138a9c03cf72d4e20e9cd28a81d9bc8b332f6a1a5901239f8739025e77"
+      "contentHash": "42898ee67c93f797fa0a81f865ad48bf7ebe85317c8f259eaaa294c5467bd6c7"
     },
     {
       "id": "file:scripts/check-location-pages.mjs",
@@ -1043,7 +1043,7 @@
       "name": "GoodCompanySection",
       "label": "GoodCompanySection",
       "path": "components/core-pages/good-company-section.tsx",
-      "line": 52,
+      "line": 54,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "a8aacced74ba4a0820d4602c8833e35c448db3a9240eaa6ff9cb958cf492ae06"
@@ -1071,6 +1071,18 @@
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "711f12e4448c30bf33325b77d3278c17c0ca80cb957f538f8d95098fccb70e0d"
+    },
+    {
+      "id": "symbol:components/core-pages/good-company-section.tsx#variable:testimonialSets",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "testimonialSets",
+      "label": "testimonialSets",
+      "path": "components/core-pages/good-company-section.tsx",
+      "line": 52,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "4ae74d6e1b13eb9e033fdd93af18062f06b0915bbcd92ce62168dcbe7b0b66a0"
     },
     {
       "id": "symbol:components/core-pages/home-hero-carousel.tsx#function:HomeHeroCarousel",
@@ -4237,20 +4249,20 @@
       "contentHash": "60f382dc57dd4509ceea6f3cbc82409dd5bdcb95225c6c0eb1d9db4b37e49ed0"
     },
     {
-      "id": "unresolved:next-env.d.ts:./.next/dev/types/root-params.d.ts",
+      "id": "unresolved:next-env.d.ts:./.next/types/root-params.d.ts",
       "type": "unresolved",
-      "label": "./.next/dev/types/root-params.d.ts",
+      "label": "./.next/types/root-params.d.ts",
       "confidence": 0.4,
       "extractor": "import",
-      "contentHash": "b8de7a957d5fe5fa5acdc43fd6a499e24d701ce976656fa3d6c996dd758440cd"
+      "contentHash": "d75864d336575d956116db1c2939a98f6374dda85591fc179dfcb7ae63ead7c7"
     },
     {
-      "id": "unresolved:next-env.d.ts:./.next/dev/types/routes.d.ts",
+      "id": "unresolved:next-env.d.ts:./.next/types/routes.d.ts",
       "type": "unresolved",
-      "label": "./.next/dev/types/routes.d.ts",
+      "label": "./.next/types/routes.d.ts",
       "confidence": 0.4,
       "extractor": "import",
-      "contentHash": "1546659a74b53a90618aed9dae0361c9d76195040d4f4eedb76f99269c93aafe"
+      "contentHash": "fc7907318a7a248fc4b5c05ab3e149a7afc37fc3581567cb7c1b9b4bb9078933"
     }
   ],
   "edges": [
@@ -5428,7 +5440,7 @@
       "type": "defines",
       "source": "file:components/core-pages/good-company-section.tsx",
       "target": "symbol:components/core-pages/good-company-section.tsx#function:GoodCompanySection",
-      "line": 52,
+      "line": 54,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5447,6 +5459,15 @@
       "source": "file:components/core-pages/good-company-section.tsx",
       "target": "symbol:components/core-pages/good-company-section.tsx#variable:testimonialColumns",
       "line": 31,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:components/core-pages/good-company-section.tsx",
+      "target": "symbol:components/core-pages/good-company-section.tsx#variable:testimonialSets",
+      "line": 52,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -8341,8 +8362,8 @@
     {
       "type": "imports",
       "source": "file:next-env.d.ts",
-      "target": "unresolved:next-env.d.ts:./.next/dev/types/root-params.d.ts",
-      "specifier": "./.next/dev/types/root-params.d.ts",
+      "target": "unresolved:next-env.d.ts:./.next/types/root-params.d.ts",
+      "specifier": "./.next/types/root-params.d.ts",
       "line": 4,
       "resolved": false,
       "confidence": 0.4,
@@ -8351,8 +8372,8 @@
     {
       "type": "imports",
       "source": "file:next-env.d.ts",
-      "target": "unresolved:next-env.d.ts:./.next/dev/types/routes.d.ts",
-      "specifier": "./.next/dev/types/routes.d.ts",
+      "target": "unresolved:next-env.d.ts:./.next/types/routes.d.ts",
+      "specifier": "./.next/types/routes.d.ts",
       "line": 3,
       "resolved": false,
       "confidence": 0.4,
@@ -9071,6 +9092,6 @@
   ],
   "warnings": [],
   "stats": {
-    "unresolvedCalls": 256
+    "unresolvedCalls": 257
   }
 }

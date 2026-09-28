@@ -41,9 +41,20 @@ try {
   const after = await track.evaluate((node) => node.getBoundingClientRect().x);
   assert(animation.name === "brand-marquee", `Unexpected logo animation: ${animation.name}.`);
   assert(animation.iterations === "infinite", "Logo carousel is not configured to loop.");
+  assert(await track.evaluate((node) => getComputedStyle(node).animationDuration === "102s"), "Logo carousel does not match the source scroll speed.");
   assert(Math.abs(after - animation.before) > 1, "Logo carousel did not move.");
   assert(await desktop.locator(".home-hero-slide").first().evaluate((node) => getComputedStyle(node).animationName === "home-hero-fade"), "Hero slideshow is not animated.");
-  assert(await desktop.locator(".testimonial-slide").first().evaluate((node) => getComputedStyle(node).animationName === "testimonial-fade"), "Testimonial cards are not animated.");
+  const testimonialAnimation = await desktop.locator(".testimonial-track").first().evaluate((node) => {
+    const animation = node.getAnimations()[0];
+    return {
+      name: getComputedStyle(node).animationName,
+      iterations: getComputedStyle(node).animationIterationCount,
+      transforms: animation?.effect?.getKeyframes().map((frame) => frame.transform),
+    };
+  });
+  assert(testimonialAnimation.name === "testimonial-scroll", "Testimonial cards do not use the source-style horizontal scroll.");
+  assert(testimonialAnimation.iterations === "infinite", "Testimonial scroll is not configured to loop.");
+  assert(new Set(testimonialAnimation.transforms).size > 1, "Testimonial scroll has no vertical movement.");
 
   const footerAction = desktop.locator(".footer-action-carousel");
   await footerAction.scrollIntoViewIfNeeded();
@@ -110,7 +121,7 @@ try {
   await reduced.locator('[data-home-section="good-company"]').scrollIntoViewIfNeeded();
   assert(await reduced.locator(".brand-flow > div").evaluate((node) => getComputedStyle(node).animationName === "none"), "Reduced-motion mode does not stop the carousel.");
   assert(await reduced.locator(".home-hero-slide").first().evaluate((node) => getComputedStyle(node).animationName === "none"), "Reduced-motion mode does not stop the hero slideshow.");
-  assert(await reduced.locator(".testimonial-slide").first().evaluate((node) => getComputedStyle(node).animationName === "none"), "Reduced-motion mode does not stop the testimonial carousel.");
+  assert(await reduced.locator(".testimonial-track").first().evaluate((node) => getComputedStyle(node).animationName === "none"), "Reduced-motion mode does not stop the testimonial carousel.");
   assert(await reduced.locator(".brand-flow img").first().isVisible(), "Reduced-motion fallback hides the client logos.");
   await reducedContext.close();
 

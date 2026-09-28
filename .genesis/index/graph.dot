@@ -100,6 +100,7 @@ digraph genesis {
   "symbol:components/core-pages/good-company-section.tsx#function:GoodCompanySection" [label="GoodCompanySection",class="symbol"];
   "symbol:components/core-pages/good-company-section.tsx#variable:clientLogos" [label="clientLogos",class="symbol"];
   "symbol:components/core-pages/good-company-section.tsx#variable:testimonialColumns" [label="testimonialColumns",class="symbol"];
+  "symbol:components/core-pages/good-company-section.tsx#variable:testimonialSets" [label="testimonialSets",class="symbol"];
   "symbol:components/core-pages/home-hero-carousel.tsx#function:HomeHeroCarousel" [label="HomeHeroCarousel",class="symbol"];
   "symbol:components/core-pages/home-hero-carousel.tsx#variable:slides" [label="slides",class="symbol"];
   "symbol:components/core-pages/rich-media.tsx#function:MediaFeature" [label="MediaFeature",class="symbol"];
@@ -364,8 +365,8 @@ digraph genesis {
   "symbol:src/lib/site-navigation.ts#type:NavigationItem" [label="NavigationItem",class="symbol"];
   "symbol:src/lib/site-navigation.ts#variable:navigation" [label="navigation",class="symbol"];
   "unresolved:app/layout.tsx:./globals.css" [label="./globals.css",class="unresolved"];
-  "unresolved:next-env.d.ts:./.next/dev/types/root-params.d.ts" [label="./.next/dev/types/root-params.d.ts",class="unresolved"];
-  "unresolved:next-env.d.ts:./.next/dev/types/routes.d.ts" [label="./.next/dev/types/routes.d.ts",class="unresolved"];
+  "unresolved:next-env.d.ts:./.next/types/root-params.d.ts" [label="./.next/types/root-params.d.ts",class="unresolved"];
+  "unresolved:next-env.d.ts:./.next/types/routes.d.ts" [label="./.next/types/routes.d.ts",class="unresolved"];
   "symbol:app/[...slug]/page.tsx#function:CapturedRoutePage" -> "symbol:app/[...slug]/page.tsx#function:pathFromSlug" [label="calls"];
   "symbol:app/[...slug]/page.tsx#function:generateMetadata" -> "symbol:app/[...slug]/page.tsx#function:pathFromSlug" [label="calls"];
   "symbol:components/core-pages/core-page.tsx#function:AboutPage" -> "symbol:components/core-pages/core-page.tsx#function:displayAsset" [label="calls"];
@@ -499,6 +500,7 @@ digraph genesis {
   "file:components/core-pages/good-company-section.tsx" -> "symbol:components/core-pages/good-company-section.tsx#function:GoodCompanySection" [label="defines"];
   "file:components/core-pages/good-company-section.tsx" -> "symbol:components/core-pages/good-company-section.tsx#variable:clientLogos" [label="defines"];
   "file:components/core-pages/good-company-section.tsx" -> "symbol:components/core-pages/good-company-section.tsx#variable:testimonialColumns" [label="defines"];
+  "file:components/core-pages/good-company-section.tsx" -> "symbol:components/core-pages/good-company-section.tsx#variable:testimonialSets" [label="defines"];
   "file:components/core-pages/home-hero-carousel.tsx" -> "symbol:components/core-pages/home-hero-carousel.tsx#function:HomeHeroCarousel" [label="defines"];
   "file:components/core-pages/home-hero-carousel.tsx" -> "symbol:components/core-pages/home-hero-carousel.tsx#variable:slides" [label="defines"];
   "file:components/core-pages/rich-media.tsx" -> "symbol:components/core-pages/rich-media.tsx#function:MediaFeature" [label="defines"];
@@ -814,8 +816,8 @@ digraph genesis {
   "file:eslint.config.mjs" -> "package:npm:eslint-config-next" [label="imports"];
   "file:eslint.config.mjs" -> "package:npm:eslint-config-next" [label="imports"];
   "file:eslint.config.mjs" -> "package:npm:eslint" [label="imports"];
-  "file:next-env.d.ts" -> "unresolved:next-env.d.ts:./.next/dev/types/root-params.d.ts" [label="imports"];
-  "file:next-env.d.ts" -> "unresolved:next-env.d.ts:./.next/dev/types/routes.d.ts" [label="imports"];
+  "file:next-env.d.ts" -> "unresolved:next-env.d.ts:./.next/types/root-params.d.ts" [label="imports"];
+  "file:next-env.d.ts" -> "unresolved:next-env.d.ts:./.next/types/routes.d.ts" [label="imports"];
   "file:next.config.ts" -> "package:npm:next" [label="imports"];
   "file:scripts/capture-blog-display-assets.mjs" -> "package:npm:playwright-core" [label="imports"];
   "file:scripts/capture-blog-display-assets.mjs" -> "runtime:javascript:crypto" [label="imports"];

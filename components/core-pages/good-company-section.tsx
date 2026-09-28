@@ -49,12 +49,16 @@ const testimonialColumns = [
   ],
 ] as const;
 
+const testimonialSets = testimonialColumns[0].map((_, index) => testimonialColumns.map((column) => column[index]));
+
 export function GoodCompanySection({ brands = true, heading = true }: { brands?: boolean; heading?: boolean }) {
   return <section className={`trusted-section${brands ? "" : " no-brands"}${heading ? "" : " reviews-only"}`} data-home-section="good-company">
     {heading ? <><h2>YOUR IN GOOD COMPANY</h2><p>TRUSTED BY CLIENTS ACROSS EVERY TYPE OF CELEBRATION</p></> : null}
     {brands ? <div className="brand-flow" aria-label="Featured clients"><div>{[...clientLogos, ...clientLogos].map(([alt, src], index) => <span key={`${src}-${index}`}><Image src={src} alt={alt} fill sizes="185px" /></span>)}</div></div> : null}
-    <div className="review-flow" aria-label="Client testimonials">{testimonialColumns.map((column, columnIndex) => <div className="testimonial-column" key={columnIndex}>
-      {column.map(([alt, src], slideIndex) => <Image className="testimonial-slide" key={src} src={src} alt={alt} fill sizes="(max-width: 767px) 88vw, 33vw" priority={slideIndex === 0} unoptimized={slideIndex === 0} style={{ "--slide-index": slideIndex } as React.CSSProperties} />)}
-    </div>)}</div>
+    <div className="review-flow" aria-label="Client testimonials"><div className="testimonial-track">
+      {[...testimonialSets, testimonialSets[0]].map((set, setIndex) => <div className="testimonial-set" aria-hidden={setIndex === testimonialSets.length || undefined} key={setIndex}>
+        {set.map(([alt, src]) => <span className="testimonial-card" key={src}><Image className={setIndex === testimonialSets.length ? "testimonial-loop-slide" : "testimonial-slide"} src={src} alt={setIndex === testimonialSets.length ? "" : alt} fill sizes="(max-width: 767px) 88vw, 33vw" priority={setIndex === 0} unoptimized /></span>)}
+      </div>)}
+    </div></div>
   </section>;
 }

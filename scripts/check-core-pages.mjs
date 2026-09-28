@@ -69,6 +69,21 @@ try {
   assert((await page.locator(".legacy-social-cta a").count()) === 1 && (await page.locator(".legacy-social-portfolio a").count()) === 1, "Legacy social calls to action are incomplete.");
   await page.goto(`${origin}/corporatesocialportfolio`);
   assert((await page.locator(".gallery-grid img").count()) >= 12, "Corporate gallery has too few images.");
+  await page.setViewportSize({ width: 1728, height: 1100 });
+  for (const pathname of ["/meetamber", "/aboutawe"]) {
+    await page.goto(`${origin}${pathname}`);
+    const box = await page.locator("main.about-page").boundingBox();
+    assert(box && Math.abs(box.x + box.width / 2 - 864) < 1, `${pathname} content is not centered on wide desktop.`);
+  }
+  for (const pathname of ["/corporatesocialportfolio", "/proposalweddingportfolio"]) {
+    await page.goto(`${origin}${pathname}`);
+    const [pageBox, gridBox] = await Promise.all([page.locator("main.gallery-page").boundingBox(), page.locator(".gallery-grid").boundingBox()]);
+    assert(gridBox && Math.abs(gridBox.x + gridBox.width / 2 - 864) < 1, `${pathname} gallery is not centered on wide desktop.`);
+    assert(pageBox && gridBox && Math.abs(pageBox.y + pageBox.height - (gridBox.y + gridBox.height)) < 1, `${pathname} has artificial space below its final image row.`);
+  }
+  await page.goto(`${origin}/`);
+  const reviewBox = await page.locator(".review-flow").boundingBox();
+  assert(reviewBox && Math.abs(reviewBox.x + reviewBox.width / 2 - 864) < 1, "Good Company reviews are not centered on wide desktop.");
   console.log(`Core pages verified: ${paths.length} routes render local content and media.`);
 } finally {
   await browser?.close();

@@ -1,0 +1,30 @@
+{
+  "task": "UI-POLISH-R5",
+  "gate": "interactions",
+  "kind": "command",
+  "attempt": "701d349e-e608-4486-ab92-f744717d20b9",
+  "command": "pnpm test:carousel && pnpm test:core",
+  "started_at": "2026-09-28T15:36:36.495Z",
+  "observed_at": "2026-09-28T15:38:04.639Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "Homepage interactions verified: carousels work, footer actions split evenly, vendor uses mailto, and Event Inquiry stays in a modal.\nCore pages verified: 16 routes render local content and media.\n",
+  "stderr": "$ node scripts/check-homepage-interactions.mjs\n$ node scripts/check-core-pages.mjs\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "0018e0fd042d79cbcb7fedcdd8f212578ca1ad4e",
+    "dirty": true
+  },
+  "source_hash": "cc7e99fd1efcfa617ce1c29ca152654c77e1648039495e3cbda75c395ca53285",
+  "before_hash": "cc7e99fd1efcfa617ce1c29ca152654c77e1648039495e3cbda75c395ca53285",
+  "config_hash": "31cf5dcfe8b8cac277750cf30a681d36e00c4cb117e0d6cdb9fe0291446724f3",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "e477e596da9a620dd2b54048b50cf17f0ad18d532cb8ff74515530006e6a5e13"
+}

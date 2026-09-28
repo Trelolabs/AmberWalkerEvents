@@ -188,8 +188,8 @@ button, summary { font: inherit; }
 .gallery-page, .video-page, .media-page, .blog-page, .contact-page { min-height: 600px; }
 .gallery-page, .video-page, .media-page { background: var(--awe-white); }
 .gallery-page h1, .video-page h1, .media-page > h1, .blog-page h1, .contact-page > h1 { margin: 0; display: grid; place-items: center; text-align: center; font-size: 40px; line-height: 1; }
-.gallery-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
-.event-gallery-page .gallery-grid { width: 90%; margin-inline: auto; }
+.gallery-grid { width: min(100%, 1440px); margin-inline: auto; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+.event-gallery-page .gallery-grid { width: min(90%, 1296px); }
 .gallery-grid > button { position: relative; aspect-ratio: 1; min-width: 0; margin: 0; padding: 0; overflow: hidden; border: 0; background: var(--awe-black); cursor: zoom-in; }
 .gallery-grid img { object-fit: cover; }
 .proposal-gallery-page h1, .proposal-video-page h1, .media-page > h1 { color: var(--awe-lilac); font-weight: 400; }
@@ -402,7 +402,8 @@ button, summary { font: inherit; }
   .proposal-tips-page .proposal-review h2 { height: 100px; padding: 15px; display: grid; place-items: center; font-size: 50px; font-weight: 700; }
   .site:has(.proposal-tips-page) .site-footer { height: 466px; min-height: 466px; }
 
-  .site:has(.brand-page) .brand-layout { height: 887px; min-height: 887px; grid-template-columns: 722px 718px; }
+  .about-page { width: min(100%, 1440px); margin-inline: auto; }
+  .site:has(.brand-page) .brand-layout { height: 887px; min-height: 887px; grid-template-columns: minmax(0, 722fr) minmax(0, 718fr); }
   .site:has(.brand-page) .brand-copy { align-self: start; padding: 39px 36px 0; font-size: 20px; line-height: 1.4; }
   .site:has(.brand-page) .brand-copy h1 { margin-bottom: 32px; text-align: center; font-size: 45px; font-weight: 700; line-height: normal; }
   .site:has(.brand-page) .brand-copy p { margin-bottom: 28px; }
@@ -413,9 +414,9 @@ button, summary { font: inherit; }
   .site:has(.brand-page) .service-press { height: 466px; min-height: 466px; }
   .site:has(.brand-page) .site-footer { height: 565px; min-height: 565px; }
   .site:has(.about-page:not(.brand-page)) .about-layout { min-height: 687px; height: 687px; }
-  .site:has(.about-page:not(.brand-page)) .about-layout { grid-template-columns: 503px 1fr; }
+  .site:has(.about-page:not(.brand-page)) .about-layout { grid-template-columns: minmax(0, 503fr) minmax(0, 937fr); }
   .site:has(.about-page:not(.brand-page)) .about-image { min-height: 687px; }
-  .site:has(.about-page:not(.brand-page)) .about-copy { align-self: start; width: 785px; max-width: none; padding: 22px 0 0 148px; text-align: center; }
+  .site:has(.about-page:not(.brand-page)) .about-copy { align-self: start; justify-self: center; width: min(637px, calc(100% - 40px)); max-width: none; padding: 22px 0 0; text-align: center; transform: translateX(-2px); }
   .site:has(.about-page:not(.brand-page)) .about-copy h1 { margin-bottom: 26px; font-size: 60px; font-weight: 700; line-height: .9; }
   .site:has(.about-page:not(.brand-page)) .about-copy h1 { margin-bottom: 44px; }
   .site:has(.about-page:not(.brand-page)) .about-copy p { margin: 0; font-family: var(--font-editorial); font-size: 20px; line-height: 28px; }
@@ -494,17 +495,21 @@ button, summary { font: inherit; }
 .trusted-section > h2 { height: 57px; margin: 0; padding-inline: 24px; font-size: 46px; font-weight: 400; line-height: 57px; letter-spacing: 9.2px; }
 .trusted-section > p { height: 26px; margin: 4px 0 0; padding-inline: 24px; font-family: var(--font-editorial); font-size: 20px; font-weight: 400; line-height: 26px; }
 .brand-flow { width: 100%; height: 185px; margin: 2px 0 10px; overflow: hidden; contain: layout paint; }
-.brand-flow > div { width: max-content; height: 185px; display: flex; align-items: center; gap: 20px; animation: brand-marquee 48s linear infinite; }
+.brand-flow > div { width: max-content; height: 185px; display: flex; align-items: center; gap: 20px; animation: brand-marquee 102s linear infinite; }
 .brand-flow span { position: relative; width: 185px; height: 185px; flex: 0 0 auto; }
 .brand-flow img { object-fit: contain; filter: grayscale(1); }
-.review-flow { height: 456px; display: grid; grid-template-columns: 479px 481px 480px; contain: layout paint; }
-.testimonial-column { position: relative; min-width: 0; height: 456px; overflow: hidden; }
-.testimonial-slide { object-fit: cover; opacity: 0; animation: testimonial-fade 28s linear infinite; animation-delay: calc(var(--slide-index) * 7s); }
-.testimonial-slide:first-child { opacity: 1; }
+.review-flow { width: min(100%, 1440px); height: 456px; margin-inline: auto; overflow: hidden; contain: layout paint; }
+.testimonial-track { width: 100%; height: 456px; display: flex; animation: testimonial-scroll 32s linear infinite; }
+.testimonial-set { min-width: 100%; height: 456px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.testimonial-card { position: relative; min-width: 0; height: 456px; }
+.testimonial-card img { object-fit: cover; }
 @keyframes brand-marquee { to { transform: translateX(calc(-50% - 10px)); } }
-@keyframes testimonial-fade {
-  0%, 21% { opacity: 1; }
-  25%, 100% { opacity: 0; }
+@keyframes testimonial-scroll {
+  0%, 18.75% { transform: translateX(0); }
+  25%, 43.75% { transform: translateX(-100%); }
+  50%, 68.75% { transform: translateX(-200%); }
+  75%, 93.75% { transform: translateX(-300%); }
+  100% { transform: translateX(-400%); }
 }
 .location-cta { padding: 44px 20px 60px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; color: var(--awe-white); background: var(--awe-black); }
 .location-cta h2 { margin: 0; font-size: clamp(28px, 3vw, 44px); font-weight: 400; }
@@ -596,9 +601,9 @@ button, summary { font: inherit; }
 .site:has(.wedding-service-page) .site-footer { color: var(--awe-lilac); background: var(--awe-white); border-top: 1px solid var(--awe-lilac); }
 
 @media (min-width: 768px) {
-  .event-gallery-page { height: 1139px; min-height: 1139px; padding: 0; }
+  .event-gallery-page { height: auto; min-height: 0; padding: 0; }
   .event-gallery-page h1 { height: 88px; font-weight: 700; }
-  .proposal-gallery-page { height: 1229px; min-height: 1229px; padding: 0; }
+  .proposal-gallery-page { height: auto; min-height: 0; padding: 0; }
   .proposal-gallery-page h1 { height: 78px; }
   .event-video-page, .proposal-video-page { height: 730px; min-height: 730px; padding: 0; }
   .event-video-page h1 { height: 89px; font-weight: 700; }
@@ -755,8 +760,10 @@ button, summary { font: inherit; }
   .brand-flow { height: 120px; margin-block: 8px 18px; }
   .brand-flow > div { height: 120px; }
   .brand-flow span { width: 130px; height: 94px; }
-  .review-flow { height: 420px; display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; }
-  .testimonial-column { min-width: 88%; height: 420px; scroll-snap-align: center; }
+  .review-flow { height: 420px; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .testimonial-track { width: max-content; height: 420px; gap: 22px; animation: none; }
+  .testimonial-set { display: contents; }
+  .testimonial-card { width: 88vw; height: 420px; flex: 0 0 88vw; scroll-snap-align: center; }
   .legacy-proposal-hero { height: 520px; }
   .legacy-proposal-hero p { margin-top: 50px; }
   .legacy-proposal-intro { grid-template-columns: 1fr; }
@@ -771,6 +778,6 @@ button, summary { font: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-  .brand-flow > div, .home-hero-slide, .home-hero-counter span, .testimonial-slide { animation: none; }
-  .home-hero-slide:not(:first-child), .home-hero-counter span:not(:first-child), .testimonial-slide:not(:first-child) { opacity: 0; }
+  .brand-flow > div, .home-hero-slide, .home-hero-counter span, .testimonial-track { animation: none; }
+  .home-hero-slide:not(:first-child), .home-hero-counter span:not(:first-child) { opacity: 0; }
 }
