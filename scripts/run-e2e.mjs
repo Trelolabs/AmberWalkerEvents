@@ -9,7 +9,7 @@ if (grep.includes("homepage") || grep.includes("carousel")) checks.add("scripts/
 if (grep.includes("core page") || grep.includes("service") || grep.includes("editorial")) checks.add("scripts/check-core-pages.mjs");
 if (grep.includes("portfolio") || grep.includes("video") || grep.includes("media")) checks.add("scripts/check-rich-media.mjs");
 if (grep.includes("location route")) checks.add("scripts/check-location-pages.mjs");
-if (grep.includes("blog article")) checks.add("scripts/check-route-completeness.mjs");
+if (grep.includes("blog index") || grep.includes("blog article")) checks.add("scripts/check-blog-pages.mjs");
 if (!checks.size) {
   checks.add("scripts/check-shared-shell.mjs");
   checks.add("scripts/check-homepage-interactions.mjs");

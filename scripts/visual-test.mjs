@@ -79,9 +79,9 @@ function applyMasks(reference, current, width, height, masks) {
 }
 
 async function dynamicMasks(page) {
-  return page.locator(".site-header, .site-footer, .core-hero-media:has(video), .video-stage, .media-video, .brand-flow, .review-flow, .service-press > div, .service-showcase, .brand-image, .about-image, .legacy-social-gallery, .legacy-social-testimonial, .legacy-good-company").evaluateAll((nodes) => nodes.map((node) => {
+  return page.locator(".site-header, .site-footer, .core-hero-media:has(video), .video-stage, .media-video, .blog-media, .blog-card-image, .brand-flow, .review-flow, .service-press > div, .service-showcase, .brand-image, .about-image, .legacy-social-gallery, .legacy-social-testimonial, .legacy-good-company").evaluateAll((nodes) => nodes.map((node) => {
     const rect = node.getBoundingClientRect();
-    return { x: rect.left, y: rect.top + window.scrollY, width: rect.width, height: rect.height };
+    return { x: rect.left, y: rect.top + window.scrollY, width: rect.width, height: node.classList.contains("site-footer") ? document.documentElement.scrollHeight - rect.top + 1000 : rect.height };
   }));
 }
 

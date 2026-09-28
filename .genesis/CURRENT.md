@@ -1,7 +1,7 @@
 # Current State
 
 - Phase: BUILD
-- Active milestone: R4 - portfolios, video, and media fidelity complete
+- Active milestone: R5 - blog index and article fidelity complete
 - Workspace at discovery: empty
 - Reference audited: home, representative corporate/wedding/proposal routes, desktop and mobile header behavior, robots, pages sitemap, and blog sitemap
 - Discovered scope: 94 public routes (81 static + 13 blog)
@@ -87,7 +87,7 @@ R2 originally began with the four main service routes, followed by the supportin
 
 ## Next action
 
-Begin R5 fidelity work for the blog index and all 13 article routes, then continue to final SEO/accessibility validation.
+Begin R6 final SEO, metadata, sitemap, accessibility, and whole-site validation.
 
 ## R4 complete
 
@@ -99,3 +99,14 @@ Begin R5 fidelity work for the blog index and all 13 article routes, then contin
 - The original 390px rich-media captures encoded the live Wix site's 980px overflowing desktop canvas. They were replaced with centered responsive references after verifying every route has `scrollWidth <= innerWidth`, preserving the user's explicit no-horizontal-scroll requirement.
 - `pnpm test:e2e --grep "portfolio|video|media"` passes the inventory, local-media, lightbox, keyboard, carousel, controls, Media link, and mobile overflow assertions.
 - `pnpm visual:test --project=rich-media` passes all 10 desktop/mobile comparisons at the 1.5% gate: 0.20% average and 1.35% worst.
+
+## R5 complete
+
+- `/blog` now renders the complete 13-card source index with exact live card titles, categories, locations, excerpts, display media, and working subject/location filters.
+- All 13 article routes render their full frozen source copy, ordered local images/videos, source-sized alternating story flow, labels, and previous/next/back navigation without placeholders.
+- Blog display derivatives are captured reproducibly; every candidate asset is checked against all existing `public/media` files by SHA-256 before a new file is stored.
+- The one required Avenir Latin font subset is likewise checked repository-wide before capture and stored locally only because no matching font existed.
+- Five Wix media records that remain unavailable are represented as explicit source-unavailable slots rather than substituted or duplicated imagery.
+- Responsive blog routes are centered and assert `scrollWidth <= innerWidth` at 390px.
+- `pnpm test:e2e --grep "blog index|all blog articles"` passes all index, filter, content, local-media, navigation, and responsive assertions after building all 96 static pages.
+- `pnpm visual:test --project=blog` passes all 28 desktop/mobile comparisons at the 1.5% gate: 0.35% average and 1.14% worst.

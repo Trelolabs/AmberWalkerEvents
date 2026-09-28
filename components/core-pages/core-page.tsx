@@ -5,6 +5,7 @@ import type { RouteRecord } from "@/src/content/routes.generated";
 import { GoodCompanySection } from "./good-company-section";
 import { HomeHeroCarousel } from "./home-hero-carousel";
 import { MediaFeature, PortfolioGallery, VideoGallery } from "./rich-media";
+import { BlogIndex } from "@/components/blog/blog-pages";
 
 const pressLogos = [
   ["US Weekly", "/media/home/display/press-01.avif"],
@@ -193,12 +194,6 @@ function VideoPage({ page, route }: { page: CorePageRecord; route: RouteRecord }
   return <VideoGallery heading={proposal ? "PROPOSAL VIDEO GALLERY" : "EVENT PORTFOLIO"} slides={slides} proposal={proposal} />;
 }
 
-function BlogPage({ page }: { page: CorePageRecord }) {
-  const titles = ["Chicago Proposal", "Alice in Wonderland", "Amber Walker Designs", "Miami Wedding", "Urban Planet", "HBNG", "CN Tower", "The Oscars", "Living Luxe Design Show", "Canaroma", "Nagarro", "AJ Minter", "AMG"];
-  const cards = images(page).slice(0, titles.length);
-  return <main className="blog-page"><h1>BLOG</h1><section className="blog-grid">{titles.map((title, index) => <Link href={`/blogs/${["chicagoproposal","aliceinwonderland","amberwalkerdesigns","miamiwedding","urbanplanet","hbng","cntower","oscars","llds","canaroma","nagarro","ajminter","amg"][index]}`} key={title}><div>{cards[index] ? <MediaImage media={cards[index]} alt="" /> : null}</div><h2>{title}</h2><span>View Story</span></Link>)}</section></main>;
-}
-
 function ContactPage() {
   return <main className="contact-page"><div className="contact-locations"><section><h1>CALIFORNIA</h1><p>2219 Main Street, Unit 198,<br />Santa Monica, California<br /><strong>Phone: (310) 750 - 4585</strong></p><div aria-hidden="true" /></section><section><h1>TORONTO</h1><p>27 Bathurst Street,<br />Toronto, Ontario<br /><strong>Phone: (647) 444 - 5599</strong></p><div aria-hidden="true" /></section></div></main>;
 }
@@ -252,7 +247,7 @@ export function CorePage({ page, route }: { page: CorePageRecord; route: RouteRe
   if (route.pathname === "/meetamber" || route.pathname === "/aboutawe") return <AboutPage page={page} route={route} />;
   if (galleryPaths.has(route.pathname)) return <GalleryPage page={page} route={route} />;
   if (videoPaths.has(route.pathname)) return <VideoPage page={page} route={route} />;
-  if (route.pathname === "/blog") return <BlogPage page={page} />;
+  if (route.pathname === "/blog") return <BlogIndex />;
   if (route.pathname === "/contact") return <ContactPage />;
   if (route.pathname === "/copy-of-social-events") return <LegacySocialPage page={page} />;
   return <EditorialPage page={page} route={route} />;
