@@ -1,0 +1,30 @@
+{
+  "task": "R6",
+  "gate": "quality",
+  "kind": "command",
+  "attempt": "a42d35ed-c9fa-45cb-afa8-ae466c17005a",
+  "command": "pnpm verify:quality",
+  "started_at": "2026-09-28T16:51:56.619Z",
+  "observed_at": "2026-09-28T16:54:03.787Z",
+  "exit_code": 1,
+  "signal": null,
+  "stdout": "▲ Next.js 16.3.6 (Turbopack)\n✓ Running next.config.ts took 201ms\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 1859ms\n  Running TypeScript ...\n  Finished TypeScript in 2.7s ...\n  Collecting page data using 7 workers ...\n  Generating static pages using 7 workers (0/99) ...\n  Generating static pages using 7 workers (24/99) \r\n  Generating static pages using 7 workers (49/99) \r\n  Generating static pages using 7 workers (74/99) \r\n✓ Generating static pages using 7 workers (99/99) in 2.9s\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ○ /\n├ ○ /_not-found\n├   /[...slug]\n│ ├ ● /aboutawe\n│ ├ ● /austinproposalplanning\n│ ├ ● /blog\n│ └ ● [+90 more paths]\n├ ƒ /og/[...slug]\n├ ○ /opengraph-image\n├ ○ /robots.txt\n└ ○ /sitemap.xml\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\nProduction readiness verified: 94 sitemap routes, robots, social images, form disclosure, and reduced motion.\n[ELIFECYCLE] Command failed with exit code 1.\n",
+  "stderr": "$ pnpm lint && pnpm typecheck && next build && node scripts/check-production-readiness.mjs && node scripts/check-route-completeness.mjs\n$ eslint .\n$ tsc --noEmit\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\npage.goto: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:3317/weddingplanningvancouver\", waiting until \"domcontentloaded\"\u001b[22m\n\n    at /home/rishik-kumar/Clients/Alena/Amber Walker Events(Client-1)/CodePart/scripts/check-route-completeness.mjs:53:35\n    at async file:///home/rishik-kumar/Clients/Alena/Amber%20Walker%20Events(Client-1)/CodePart/scripts/check-route-completeness.mjs:37:18 {\n  log: [\n    '  - navigating to \"http://127.0.0.1:3317/weddingplanningvancouver\", waiting until \"domcontentloaded\"'\n  ],\n  name: 'TimeoutError'\n}\n\nNode.js v24.13.0\n",
+  "failure": "command-failed",
+  "receipt": null,
+  "revision": {
+    "commit": "ba04e0c0b0cf81feaf93f30357072e47df825883",
+    "dirty": true
+  },
+  "source_hash": "2a99e99dabb96ef07dde999248c942fa0cf1c8094b199809b1eccac5bee2666b",
+  "before_hash": "2a99e99dabb96ef07dde999248c942fa0cf1c8094b199809b1eccac5bee2666b",
+  "config_hash": "12660988cc0edf753ffe2c485759b6831b4799c41b2f988d7faec29206d41c1e",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "886425f374bd22d0c5a0bf1cd8f343d6edab597ca021c9c5358b1ce17d6f5429"
+}

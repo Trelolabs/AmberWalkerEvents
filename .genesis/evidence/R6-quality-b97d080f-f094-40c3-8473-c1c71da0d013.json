@@ -1,0 +1,30 @@
+{
+  "task": "R6",
+  "gate": "quality",
+  "kind": "command",
+  "attempt": "b97d080f-f094-40c3-8473-c1c71da0d013",
+  "command": "pnpm verify:quality",
+  "started_at": "2026-09-28T17:00:22.169Z",
+  "observed_at": "2026-09-28T17:02:09.722Z",
+  "exit_code": 0,
+  "signal": null,
+  "stdout": "▲ Next.js 16.3.6 (Turbopack)\n✓ Running next.config.ts took 158ms\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 2.4s\n  Running TypeScript ...\n  Finished TypeScript in 3.5s ...\n  Collecting page data using 7 workers ...\n  Generating static pages using 7 workers (0/99) ...\n  Generating static pages using 7 workers (24/99) \r\n  Generating static pages using 7 workers (49/99) \r\n  Generating static pages using 7 workers (74/99) \r\n✓ Generating static pages using 7 workers (99/99) in 2.6s\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ○ /\n├ ○ /_not-found\n├   /[...slug]\n│ ├ ● /aboutawe\n│ ├ ● /austinproposalplanning\n│ ├ ● /blog\n│ └ ● [+90 more paths]\n├ ƒ /og/[...slug]\n├ ○ /opengraph-image\n├ ○ /robots.txt\n└ ○ /sitemap.xml\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\nProduction readiness verified: 94 sitemap routes, robots, social images, form disclosure, and reduced motion.\nRoute completeness audit: 94 checked, 0 incomplete. Report: .visual/route-audit.json\n",
+  "stderr": "$ pnpm lint && pnpm typecheck && next build && node scripts/check-production-readiness.mjs && node scripts/check-route-completeness.mjs\n$ eslint .\n$ tsc --noEmit\n",
+  "failure": null,
+  "receipt": null,
+  "revision": {
+    "commit": "ba04e0c0b0cf81feaf93f30357072e47df825883",
+    "dirty": true
+  },
+  "source_hash": "e98b3a01e6b7b91a5e5a2a01e69517b9f415efe76d10167f9f4e1d5ad29a3a65",
+  "before_hash": "e98b3a01e6b7b91a5e5a2a01e69517b9f415efe76d10167f9f4e1d5ad29a3a65",
+  "config_hash": "12660988cc0edf753ffe2c485759b6831b4799c41b2f988d7faec29206d41c1e",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "1bd941d5c0395177dfdebd801a2115890d15f4c2d132f230995107fd59d2953a"
+}

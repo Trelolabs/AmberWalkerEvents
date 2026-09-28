@@ -9,7 +9,7 @@ const slides = [
 export function HomeHeroCarousel() {
   return <section className="home-hero" aria-label="Featured Amber Walker Events celebrations">
     {slides.map(([src, alt], index) => <div className="home-hero-slide" key={src} style={{ "--slide-index": index } as React.CSSProperties}>
-      <Image src={src} alt={alt} fill sizes="100vw" priority={index === 0} unoptimized={index === 0} />
+      <Image src={src} alt={alt} fill sizes="100vw" priority={index === 0} />
     </div>)}
     <div className="home-hero-counter" aria-hidden="true">
       {slides.map(([, alt], index) => <span key={alt} style={{ "--slide-index": index } as React.CSSProperties}>{index + 1}/{slides.length}</span>)}

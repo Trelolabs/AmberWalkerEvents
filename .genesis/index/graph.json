@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "project": "CodePart",
-  "revision": "0018e0fd042d79cbcb7fedcdd8f212578ca1ad4e",
-  "sourceHash": "c1023174a19f4e74f78856fbef0164eddab131e3c989b24d9249d8b07f0fddb3",
+  "revision": "ba04e0c0b0cf81feaf93f30357072e47df825883",
+  "sourceHash": "a7b515125f555122fcc6635108e1217f41399726297e05b9020ba115a9084f26",
   "provenance": {
     "tool": "genesis-graphizer",
     "method": "static-analysis",
@@ -17,7 +17,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "d05077ee9f51a87645425bbb4843b1ef301d6434c7eaebd82b17725dcb1d6988"
+      "contentHash": "8375abf36e0920ea46c7163de9cab270f774282650a0abefceccaa1812739153"
     },
     {
       "id": "file:app/layout.tsx",
@@ -27,7 +27,27 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "a721b52141134c0f08becadec2f2082f4b3855f6ee3e88aea43dfb395d69ecf2"
+      "contentHash": "27963f21a5deaff22fad8425987e06d9d4c8c3f752b90a9f92153d63c7dc5b95"
+    },
+    {
+      "id": "file:app/og/[...slug]/route.ts",
+      "type": "file",
+      "label": "app/og/[...slug]/route.ts",
+      "path": "app/og/[...slug]/route.ts",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "984e3304a8f567e079750e1e52136653b3b437fef506e98cda7327028a6345b6"
+    },
+    {
+      "id": "file:app/opengraph-image.tsx",
+      "type": "file",
+      "label": "app/opengraph-image.tsx",
+      "path": "app/opengraph-image.tsx",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "037bb5556361a644443e836193168e35b8b9fa4aca30f54b823e7118491ffaef"
     },
     {
       "id": "file:app/page.tsx",
@@ -37,7 +57,27 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "a39ecb6f91ad727c774480f9664bd50dc01389c2c26566176442eb9372b35757"
+      "contentHash": "1e1adb1f21e2040224138b37ff5dfc45f86603357aa2d233bdab09b7428f44b4"
+    },
+    {
+      "id": "file:app/robots.ts",
+      "type": "file",
+      "label": "app/robots.ts",
+      "path": "app/robots.ts",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "479e253c3b8e744d3be1523742f5588be3beb13967bbd40749107ce26664859f"
+    },
+    {
+      "id": "file:app/sitemap.ts",
+      "type": "file",
+      "label": "app/sitemap.ts",
+      "path": "app/sitemap.ts",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "f468c3d6d35f0a9a710835222763e381da44247e7e1064e59ad1d901318c04e6"
     },
     {
       "id": "file:components/blog/blog-pages.tsx",
@@ -47,7 +87,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "dbbc0433277727f594b9ba0d6594883b2f6c32303cae0ab9829bfbd9ec227251"
+      "contentHash": "c3e1e14b7f3590911ef014baefdfdaa75bce87f5e5b93b4b54b4c94aaa576e2f"
     },
     {
       "id": "file:components/core-pages/core-page.tsx",
@@ -57,7 +97,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "8d0ba55298d396e4e202e0921885bf74027fbfab294e37ca412f2e7fa17a5fdb"
+      "contentHash": "dfae6d922deebe52a86c18931e0dae62201c39a9b7ffaad4954bbd57af93a1fd"
     },
     {
       "id": "file:components/core-pages/good-company-section.tsx",
@@ -67,7 +107,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "b498d827ad993d74ad3f92f6e7dba177225343a3992512df1dd82e9d7f7aa8d1"
+      "contentHash": "f3ef0d9e97b5e13ba2ec764f8c35b6bba303fc8df79c65a09785718d9b5f0283"
     },
     {
       "id": "file:components/core-pages/home-hero-carousel.tsx",
@@ -77,7 +117,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "575fc2acb9b9a48f257e36597a683e38c03660c5328765eff17554aacb3ee49e"
+      "contentHash": "02b6a92bb49c05a93c5f7ab77a1c9fca5b66fdab6187b5bee93b4043f5b1369f"
     },
     {
       "id": "file:components/core-pages/rich-media.tsx",
@@ -87,7 +127,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "0281dcf8f8f9277c49de86d50f65d3d0525386c39d10edbdcb912ce39ece465c"
+      "contentHash": "f4af9925dbc8dc1ada9db7dfff98801d9ba49e3543795f67fed7379e4c60af3d"
     },
     {
       "id": "file:components/location-pages/location-page.tsx",
@@ -97,7 +137,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "af267d39f1e199968b7d81ecb64c8c729e85b1c6fd7213ae7728cfbdd62985c6"
+      "contentHash": "17f2f3733ecd3699afcab30f15f11891daf143401afb62998372af9ea92e839d"
     },
     {
       "id": "file:components/site-shell/shell-page.tsx",
@@ -107,7 +147,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "d65d13f410532aec83784d9a71278647e425baf68c48e0810ac9e1d69efee2e4"
+      "contentHash": "046c47029f0275ac9ed117d3ebbef95634ed68283dba8268d6f21d3ec2b35cdc"
     },
     {
       "id": "file:components/site-shell/site-footer.tsx",
@@ -117,7 +157,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "98ccc8f0117e5c3d5d04aedaf775078f0f79dc79be10d63fc4932eb5d4f4265b"
+      "contentHash": "a74bfbd6404e54dab034b61644b4b8826277057f195b2bc40de495d05552b76b"
     },
     {
       "id": "file:components/site-shell/site-header.tsx",
@@ -127,7 +167,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "985c9eda3f1a7052423b3c890531442b2ad8567793c4e2766c6805023d9e9041"
+      "contentHash": "d746e1e7dec504900a6e9b924144eca492a6c3896ea0c8e2497b46aa57f33ba0"
     },
     {
       "id": "file:components/site-shell/site-shell.tsx",
@@ -240,6 +280,16 @@
       "contentHash": "aac7de2136f956517af152bd32430a4fde8796b4ef65b273197a9bab4157c718"
     },
     {
+      "id": "file:scripts/check-production-readiness.mjs",
+      "type": "file",
+      "label": "scripts/check-production-readiness.mjs",
+      "path": "scripts/check-production-readiness.mjs",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "72c6457e2de1a3bdc4636da36c4a6420d5c795f193463f5bc18c7bb4a952ad40"
+    },
+    {
       "id": "file:scripts/check-rich-media.mjs",
       "type": "file",
       "label": "scripts/check-rich-media.mjs",
@@ -257,7 +307,7 @@
       "language": "javascript",
       "confidence": 1,
       "extractor": "filesystem",
-      "contentHash": "80010e4ee848c0b2d2b88d49811f7aeb69f14f5d5a70af29268ad5df785add03"
+      "contentHash": "6b8e5e797f586b64a0331ae4d5ae729100330b63e54028e641921f53380ba965"
     },
     {
       "id": "file:scripts/check-shared-shell.mjs",
@@ -430,6 +480,16 @@
       "contentHash": "314408cf713b40dd83b5fd593c31bd4277b71af18b110f8e65460dad92736a39"
     },
     {
+      "id": "file:src/lib/site-metadata.ts",
+      "type": "file",
+      "label": "src/lib/site-metadata.ts",
+      "path": "src/lib/site-metadata.ts",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "bd19ac970210d307c038989f55317a9418ddc6f3f85b4ce6a319418d977772b6"
+    },
+    {
       "id": "file:src/lib/site-navigation.ts",
       "type": "file",
       "label": "src/lib/site-navigation.ts",
@@ -438,6 +498,16 @@
       "confidence": 1,
       "extractor": "filesystem",
       "contentHash": "2c99428502db3a296206e2f0ceab11d75d1d6dd9bf5ad00de41f8310f7dd4128"
+    },
+    {
+      "id": "file:src/lib/social-image.tsx",
+      "type": "file",
+      "label": "src/lib/social-image.tsx",
+      "path": "src/lib/social-image.tsx",
+      "language": "javascript",
+      "confidence": 1,
+      "extractor": "filesystem",
+      "contentHash": "916e83eaf6d42a56b528154e2d1b8aeb1abdf08ae6bb9f2c47464b4c197b18eb"
     },
     {
       "id": "package:npm:eslint",
@@ -563,7 +633,7 @@
       "name": "CapturedRoutePage",
       "label": "CapturedRoutePage",
       "path": "app/[...slug]/page.tsx",
-      "line": 19,
+      "line": 20,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "d2929c0448db0657037995687ecf589e04d040b2d543a180c2b47a0a60b95cb4"
@@ -575,7 +645,7 @@
       "name": "generateMetadata",
       "label": "generateMetadata",
       "path": "app/[...slug]/page.tsx",
-      "line": 13,
+      "line": 14,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "739258d10a7b4c20c42deb29bf4f7f985f5f3ddc89e86200ad111ee90bedab5a"
@@ -587,7 +657,7 @@
       "name": "generateStaticParams",
       "label": "generateStaticParams",
       "path": "app/[...slug]/page.tsx",
-      "line": 9,
+      "line": 10,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "ffddb7cf80dafadc909a02a15310e73dafa0980063260e01a68e61f8b76e4fc1"
@@ -599,7 +669,7 @@
       "name": "pathFromSlug",
       "label": "pathFromSlug",
       "path": "app/[...slug]/page.tsx",
-      "line": 7,
+      "line": 8,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "84c13232900ea796a6942baae60c5191bb84fa82aff3c2c56d715ed4bd63309e"
@@ -611,7 +681,7 @@
       "name": "PageProps",
       "label": "PageProps",
       "path": "app/[...slug]/page.tsx",
-      "line": 6,
+      "line": 7,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "18783f1fe64a401443d8625bcfc35a4349e9315e1667ddf4de4d858055260a55"
@@ -623,7 +693,7 @@
       "name": "RootLayout",
       "label": "RootLayout",
       "path": "app/layout.tsx",
-      "line": 10,
+      "line": 25,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "b3f96339ba215ebd6ba503ea8fca4a7c61b3c35014e0d8f3c377caed0cbc1890"
@@ -635,10 +705,94 @@
       "name": "metadata",
       "label": "metadata",
       "path": "app/layout.tsx",
-      "line": 4,
+      "line": 5,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "1c4009dcdeca39fd5c9228279837d6284c5aefaa467126841e57afc26ba65eec"
+    },
+    {
+      "id": "symbol:app/layout.tsx#variable:organization",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "organization",
+      "label": "organization",
+      "path": "app/layout.tsx",
+      "line": 14,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "8cc541e56a67a111a66404f3b5b2e7175097eba871880929db9e64caa3fa3f37"
+    },
+    {
+      "id": "symbol:app/og/[...slug]/route.ts#function:GET",
+      "type": "symbol",
+      "kind": "function",
+      "name": "GET",
+      "label": "GET",
+      "path": "app/og/[...slug]/route.ts",
+      "line": 6,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "b39ccf650ef454eca0d74666cddcbd3c7fc58a37ba72eaf11e3e4a82e187e908"
+    },
+    {
+      "id": "symbol:app/og/[...slug]/route.ts#type:RouteContext",
+      "type": "symbol",
+      "kind": "type",
+      "name": "RouteContext",
+      "label": "RouteContext",
+      "path": "app/og/[...slug]/route.ts",
+      "line": 4,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "430a90add79773efc30cc84c86b9feaf35d25fb38f8fa7bd89e6d645c4825170"
+    },
+    {
+      "id": "symbol:app/opengraph-image.tsx#function:OpenGraphImage",
+      "type": "symbol",
+      "kind": "function",
+      "name": "OpenGraphImage",
+      "label": "OpenGraphImage",
+      "path": "app/opengraph-image.tsx",
+      "line": 8,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "c798b1e8f64e752c4c88e880bc23226d86abc4cb4f80779aef8fd031c3939303"
+    },
+    {
+      "id": "symbol:app/opengraph-image.tsx#variable:alt",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "alt",
+      "label": "alt",
+      "path": "app/opengraph-image.tsx",
+      "line": 4,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "8248c4ba0be71772a956a986bb2647905f3cae883f1d2fe71a793f063b0768a2"
+    },
+    {
+      "id": "symbol:app/opengraph-image.tsx#variable:contentType",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "contentType",
+      "label": "contentType",
+      "path": "app/opengraph-image.tsx",
+      "line": 6,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "ed170a930098dfc1fc86e36575c5de8bfeb92c8e47c4872ca75f5f6d5a83dbba"
+    },
+    {
+      "id": "symbol:app/opengraph-image.tsx#variable:size",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "size",
+      "label": "size",
+      "path": "app/opengraph-image.tsx",
+      "line": 5,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "8eba79bb1776abc5957239346bb2606c3e89a4f7dd9d24efd5dd379b58193b96"
     },
     {
       "id": "symbol:app/page.tsx#function:Home",
@@ -647,10 +801,58 @@
       "name": "Home",
       "label": "Home",
       "path": "app/page.tsx",
-      "line": 3,
+      "line": 8,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "e1a106fbcc131f9a29bfcc7ca368c0c2e8175b30674f7f2c893aff7089d9e886"
+    },
+    {
+      "id": "symbol:app/page.tsx#variable:homeRoute",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "homeRoute",
+      "label": "homeRoute",
+      "path": "app/page.tsx",
+      "line": 5,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "869e922723010a800e242afb21bc5ae3e6651672908699f4eb04d68c880aa882"
+    },
+    {
+      "id": "symbol:app/page.tsx#variable:metadata",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "metadata",
+      "label": "metadata",
+      "path": "app/page.tsx",
+      "line": 6,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "1c4009dcdeca39fd5c9228279837d6284c5aefaa467126841e57afc26ba65eec"
+    },
+    {
+      "id": "symbol:app/robots.ts#function:robots",
+      "type": "symbol",
+      "kind": "function",
+      "name": "robots",
+      "label": "robots",
+      "path": "app/robots.ts",
+      "line": 4,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "5995e1e43a245270f02b6d44c48950d27e1d5f3fc0f6fe0af192c2a2191afb6f"
+    },
+    {
+      "id": "symbol:app/sitemap.ts#function:sitemap",
+      "type": "symbol",
+      "kind": "function",
+      "name": "sitemap",
+      "label": "sitemap",
+      "path": "app/sitemap.ts",
+      "line": 4,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "0240f85f47912ad8663484941caf0818f90d24118a94142755c4d21f2847b2a3"
     },
     {
       "id": "symbol:components/blog/blog-pages.tsx#function:ArticleMedia",
@@ -1367,7 +1569,7 @@
       "name": "ShellPage",
       "label": "ShellPage",
       "path": "components/site-shell/shell-page.tsx",
-      "line": 11,
+      "line": 12,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "2d76c9906774bf35a66b826d380c763f4f158fcb717778407217bbf121a02bf5"
@@ -2088,6 +2290,102 @@
       "label": "server",
       "path": "scripts/check-location-pages.mjs",
       "line": 14,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "9b8f4e758008fef5c42d9840ec2765617b171ae8dfed0357abd6149c30624597"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#function:assert",
+      "type": "symbol",
+      "kind": "function",
+      "name": "assert",
+      "label": "assert",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 12,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "b2194ba7aafbeef72b9af7470b783f7dd4f18ae8f675e92dfb5189156ad686c7"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#function:waitForServer",
+      "type": "symbol",
+      "kind": "function",
+      "name": "waitForServer",
+      "label": "waitForServer",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 16,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "10194132046ca75a6196754f84b42a21687712b945d302b6e1e68ddb798306aa"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#variable:browser",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "browser",
+      "label": "browser",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 24,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "47de0b0527b1cc0bc934066652341e93ecb7f38b28b8649c39c1a9f3ca68e7cf"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#variable:canonicalOrigin",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "canonicalOrigin",
+      "label": "canonicalOrigin",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 8,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "55bb68469f8c703006c74b9aecbf0c2d11101bfa45e77cb2e8100a0de3477b53"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#variable:origin",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "origin",
+      "label": "origin",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 7,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "2dacb357d76cc3456b8b9405858abfdb338724dd8297791515f0a436c77d6cee"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#variable:port",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "port",
+      "label": "port",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 6,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "595bd431b34449ed11d588a40ddd77cae3c9e61729a5cea7b53169332ce21445"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#variable:routes",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "routes",
+      "label": "routes",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 9,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "1a5ff8af5452bc50aa97f19ccbfa7c091d22e822ca03342d66a90afaf93ec4fb"
+    },
+    {
+      "id": "symbol:scripts/check-production-readiness.mjs#variable:server",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "server",
+      "label": "server",
+      "path": "scripts/check-production-readiness.mjs",
+      "line": 10,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "9b8f4e758008fef5c42d9840ec2765617b171ae8dfed0357abd6149c30624597"
@@ -4217,6 +4515,66 @@
       "contentHash": "faa153830fd42e11c023aa1df4076ec6219aacce0c64562bb25ecd95adb4065c"
     },
     {
+      "id": "symbol:src/lib/site-metadata.ts#function:metadataForRoute",
+      "type": "symbol",
+      "kind": "function",
+      "name": "metadataForRoute",
+      "label": "metadataForRoute",
+      "path": "src/lib/site-metadata.ts",
+      "line": 7,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "8c98a1dfcf5cfef15074e7d1d16eed8284e42898f47f1d82c9c404a61fcae194"
+    },
+    {
+      "id": "symbol:src/lib/site-metadata.ts#function:serializeStructuredData",
+      "type": "symbol",
+      "kind": "function",
+      "name": "serializeStructuredData",
+      "label": "serializeStructuredData",
+      "path": "src/lib/site-metadata.ts",
+      "line": 63,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "a5b224e5a49542fcb8bc351dbda3deb2250fc781402c3505910f6f4062fc2a6b"
+    },
+    {
+      "id": "symbol:src/lib/site-metadata.ts#function:structuredDataForRoute",
+      "type": "symbol",
+      "kind": "function",
+      "name": "structuredDataForRoute",
+      "label": "structuredDataForRoute",
+      "path": "src/lib/site-metadata.ts",
+      "line": 32,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "cf9a6549447fc8fcefd39476c589d97b1a712b32d433b054a9bf6cc731393aba"
+    },
+    {
+      "id": "symbol:src/lib/site-metadata.ts#variable:SITE_NAME",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "SITE_NAME",
+      "label": "SITE_NAME",
+      "path": "src/lib/site-metadata.ts",
+      "line": 5,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "49e5b4d089660190e04ba04e31f9f2f1c4027c80e2b2d2722940b8a713881601"
+    },
+    {
+      "id": "symbol:src/lib/site-metadata.ts#variable:SITE_URL",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "SITE_URL",
+      "label": "SITE_URL",
+      "path": "src/lib/site-metadata.ts",
+      "line": 4,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "5da8ea6555abf01340cb7eab080ba593743b8030852557567a26abb591c4c636"
+    },
+    {
       "id": "symbol:src/lib/site-navigation.ts#type:NavigationItem",
       "type": "symbol",
       "kind": "type",
@@ -4239,6 +4597,30 @@
       "confidence": 0.8,
       "extractor": "conservative-js-symbols",
       "contentHash": "15abd44a0a533092f70eb54a52bdb8601a2a20f12effd3ddd88cfd371a831946"
+    },
+    {
+      "id": "symbol:src/lib/social-image.tsx#function:createSocialImage",
+      "type": "symbol",
+      "kind": "function",
+      "name": "createSocialImage",
+      "label": "createSocialImage",
+      "path": "src/lib/social-image.tsx",
+      "line": 5,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "2d6da58f98d53a49cdd50923b954c89f447851b02973a56b4b1b4773b0f4c102"
+    },
+    {
+      "id": "symbol:src/lib/social-image.tsx#variable:socialImageSize",
+      "type": "symbol",
+      "kind": "variable",
+      "name": "socialImageSize",
+      "label": "socialImageSize",
+      "path": "src/lib/social-image.tsx",
+      "line": 3,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols",
+      "contentHash": "66f4062639521e0543cc9b0fb8944abb5f2de7d4dbed37f03df222a028ab507a"
     },
     {
       "id": "unresolved:app/layout.tsx:./globals.css",
@@ -4282,6 +4664,51 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 0.75,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:app/[...slug]/page.tsx#function:generateMetadata",
+      "target": "symbol:src/lib/site-metadata.ts#function:metadataForRoute",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:app/layout.tsx#function:RootLayout",
+      "target": "symbol:src/lib/site-metadata.ts#function:serializeStructuredData",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:app/og/[...slug]/route.ts#function:GET",
+      "target": "symbol:src/lib/social-image.tsx#function:createSocialImage",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:app/opengraph-image.tsx#function:OpenGraphImage",
+      "target": "symbol:src/lib/social-image.tsx#function:createSocialImage",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:app/page.tsx#variable:metadata",
+      "target": "symbol:src/lib/site-metadata.ts#function:metadataForRoute",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
       "extractor": "conservative-js-calls"
     },
     {
@@ -4466,6 +4893,24 @@
     },
     {
       "type": "calls",
+      "source": "symbol:components/site-shell/shell-page.tsx#function:ShellPage",
+      "target": "symbol:src/lib/site-metadata.ts#function:serializeStructuredData",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:components/site-shell/shell-page.tsx#function:ShellPage",
+      "target": "symbol:src/lib/site-metadata.ts#function:structuredDataForRoute",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
       "source": "symbol:scripts/capture-blog-display-assets.mjs#function:saveFont",
       "target": "symbol:scripts/capture-blog-display-assets.mjs#function:save",
       "tier": "proven",
@@ -4552,6 +4997,33 @@
       "tier": "proven",
       "resolved": true,
       "confidence": 0.75,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:scripts/check-production-readiness.mjs#variable:browser",
+      "target": "symbol:scripts/check-production-readiness.mjs#function:assert",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.75,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:scripts/check-production-readiness.mjs#variable:browser",
+      "target": "symbol:scripts/check-production-readiness.mjs#function:waitForServer",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.75,
+      "extractor": "conservative-js-calls"
+    },
+    {
+      "type": "calls",
+      "source": "symbol:scripts/check-production-readiness.mjs#variable:routes",
+      "target": "symbol:scripts/verification-config.mjs#function:loadRouteInventory",
+      "tier": "proven",
+      "resolved": true,
+      "confidence": 0.7,
       "extractor": "conservative-js-calls"
     },
     {
@@ -5080,7 +5552,7 @@
       "type": "defines",
       "source": "file:app/[...slug]/page.tsx",
       "target": "symbol:app/[...slug]/page.tsx#function:CapturedRoutePage",
-      "line": 19,
+      "line": 20,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5089,7 +5561,7 @@
       "type": "defines",
       "source": "file:app/[...slug]/page.tsx",
       "target": "symbol:app/[...slug]/page.tsx#function:generateMetadata",
-      "line": 13,
+      "line": 14,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5098,7 +5570,7 @@
       "type": "defines",
       "source": "file:app/[...slug]/page.tsx",
       "target": "symbol:app/[...slug]/page.tsx#function:generateStaticParams",
-      "line": 9,
+      "line": 10,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5107,7 +5579,7 @@
       "type": "defines",
       "source": "file:app/[...slug]/page.tsx",
       "target": "symbol:app/[...slug]/page.tsx#function:pathFromSlug",
-      "line": 7,
+      "line": 8,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5116,7 +5588,7 @@
       "type": "defines",
       "source": "file:app/[...slug]/page.tsx",
       "target": "symbol:app/[...slug]/page.tsx#type:PageProps",
-      "line": 6,
+      "line": 7,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5125,7 +5597,7 @@
       "type": "defines",
       "source": "file:app/layout.tsx",
       "target": "symbol:app/layout.tsx#function:RootLayout",
-      "line": 10,
+      "line": 25,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5134,7 +5606,70 @@
       "type": "defines",
       "source": "file:app/layout.tsx",
       "target": "symbol:app/layout.tsx#variable:metadata",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/layout.tsx",
+      "target": "symbol:app/layout.tsx#variable:organization",
+      "line": 14,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/og/[...slug]/route.ts",
+      "target": "symbol:app/og/[...slug]/route.ts#function:GET",
+      "line": 6,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/og/[...slug]/route.ts",
+      "target": "symbol:app/og/[...slug]/route.ts#type:RouteContext",
       "line": 4,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/opengraph-image.tsx",
+      "target": "symbol:app/opengraph-image.tsx#function:OpenGraphImage",
+      "line": 8,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/opengraph-image.tsx",
+      "target": "symbol:app/opengraph-image.tsx#variable:alt",
+      "line": 4,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/opengraph-image.tsx",
+      "target": "symbol:app/opengraph-image.tsx#variable:contentType",
+      "line": 6,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/opengraph-image.tsx",
+      "target": "symbol:app/opengraph-image.tsx#variable:size",
+      "line": 5,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5143,7 +5678,43 @@
       "type": "defines",
       "source": "file:app/page.tsx",
       "target": "symbol:app/page.tsx#function:Home",
-      "line": 3,
+      "line": 8,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/page.tsx",
+      "target": "symbol:app/page.tsx#variable:homeRoute",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/page.tsx",
+      "target": "symbol:app/page.tsx#variable:metadata",
+      "line": 6,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/robots.ts",
+      "target": "symbol:app/robots.ts#function:robots",
+      "line": 4,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:app/sitemap.ts",
+      "target": "symbol:app/sitemap.ts#function:sitemap",
+      "line": 4,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -5683,7 +6254,7 @@
       "type": "defines",
       "source": "file:components/site-shell/shell-page.tsx",
       "target": "symbol:components/site-shell/shell-page.tsx#function:ShellPage",
-      "line": 11,
+      "line": 12,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -6224,6 +6795,78 @@
       "source": "file:scripts/check-location-pages.mjs",
       "target": "symbol:scripts/check-location-pages.mjs#variable:server",
       "line": 14,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#function:assert",
+      "line": 12,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#function:waitForServer",
+      "line": 16,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#variable:browser",
+      "line": 24,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#variable:canonicalOrigin",
+      "line": 8,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#variable:origin",
+      "line": 7,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#variable:port",
+      "line": 6,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#variable:routes",
+      "line": 9,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "symbol:scripts/check-production-readiness.mjs#variable:server",
+      "line": 10,
       "resolved": true,
       "confidence": 0.8,
       "extractor": "conservative-js-symbols"
@@ -7823,6 +8466,51 @@
     },
     {
       "type": "defines",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "symbol:src/lib/site-metadata.ts#function:metadataForRoute",
+      "line": 7,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "symbol:src/lib/site-metadata.ts#function:serializeStructuredData",
+      "line": 63,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "symbol:src/lib/site-metadata.ts#function:structuredDataForRoute",
+      "line": 32,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "symbol:src/lib/site-metadata.ts#variable:SITE_NAME",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "symbol:src/lib/site-metadata.ts#variable:SITE_URL",
+      "line": 4,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
       "source": "file:src/lib/site-navigation.ts",
       "target": "symbol:src/lib/site-navigation.ts#type:NavigationItem",
       "line": 1,
@@ -7834,6 +8522,24 @@
       "type": "defines",
       "source": "file:src/lib/site-navigation.ts",
       "target": "symbol:src/lib/site-navigation.ts#variable:navigation",
+      "line": 3,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:src/lib/social-image.tsx",
+      "target": "symbol:src/lib/social-image.tsx#function:createSocialImage",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.8,
+      "extractor": "conservative-js-symbols"
+    },
+    {
+      "type": "defines",
+      "source": "file:src/lib/social-image.tsx",
+      "target": "symbol:src/lib/social-image.tsx#variable:socialImageSize",
       "line": 3,
       "resolved": true,
       "confidence": 0.8,
@@ -7862,6 +8568,16 @@
     {
       "type": "imports",
       "source": "file:app/[...slug]/page.tsx",
+      "target": "file:src/lib/site-metadata.ts",
+      "specifier": "@/src/lib/site-metadata",
+      "line": 5,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/[...slug]/page.tsx",
       "target": "package:npm:next",
       "specifier": "next",
       "line": 1,
@@ -7877,6 +8593,16 @@
       "line": 2,
       "resolved": false,
       "confidence": 0.5,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/layout.tsx",
+      "target": "file:src/lib/site-metadata.ts",
+      "specifier": "@/src/lib/site-metadata",
+      "line": 3,
+      "resolved": true,
+      "confidence": 0.85,
       "extractor": "javascript-imports"
     },
     {
@@ -7901,12 +8627,112 @@
     },
     {
       "type": "imports",
+      "source": "file:app/og/[...slug]/route.ts",
+      "target": "file:src/content/routes.generated.ts",
+      "specifier": "@/src/content/routes.generated",
+      "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/og/[...slug]/route.ts",
+      "target": "file:src/lib/social-image.tsx",
+      "specifier": "@/src/lib/social-image",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/opengraph-image.tsx",
+      "target": "file:src/content/routes.generated.ts",
+      "specifier": "@/src/content/routes.generated",
+      "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/opengraph-image.tsx",
+      "target": "file:src/lib/social-image.tsx",
+      "specifier": "@/src/lib/social-image",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
       "source": "file:app/page.tsx",
       "target": "file:components/site-shell/shell-page.tsx",
       "specifier": "@/components/site-shell/shell-page",
       "line": 1,
       "resolved": true,
       "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/page.tsx",
+      "target": "file:src/content/routes.generated.ts",
+      "specifier": "@/src/content/routes.generated",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/page.tsx",
+      "target": "file:src/lib/site-metadata.ts",
+      "specifier": "@/src/lib/site-metadata",
+      "line": 3,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/robots.ts",
+      "target": "file:src/lib/site-metadata.ts",
+      "specifier": "@/src/lib/site-metadata",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/robots.ts",
+      "target": "package:npm:next",
+      "specifier": "next",
+      "line": 1,
+      "resolved": false,
+      "confidence": 0.5,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/sitemap.ts",
+      "target": "file:src/content/routes.generated.ts",
+      "specifier": "@/src/content/routes.generated",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:app/sitemap.ts",
+      "target": "package:npm:next",
+      "specifier": "next",
+      "line": 1,
+      "resolved": false,
+      "confidence": 0.5,
       "extractor": "javascript-imports"
     },
     {
@@ -8185,6 +9011,16 @@
       "target": "file:src/content/routes.generated.ts",
       "specifier": "@/src/content/routes.generated",
       "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:components/site-shell/shell-page.tsx",
+      "target": "file:src/lib/site-metadata.ts",
+      "specifier": "@/src/lib/site-metadata",
+      "line": 10,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "javascript-imports"
@@ -8595,6 +9431,46 @@
       "target": "runtime:javascript:timers",
       "specifier": "node:timers/promises",
       "line": 4,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "file:scripts/verification-config.mjs",
+      "specifier": "./verification-config.mjs",
+      "line": 4,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "package:npm:playwright-core",
+      "specifier": "playwright-core",
+      "line": 2,
+      "resolved": false,
+      "confidence": 0.5,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "runtime:javascript:child_process",
+      "specifier": "node:child_process",
+      "line": 1,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:scripts/check-production-readiness.mjs",
+      "target": "runtime:javascript:timers",
+      "specifier": "node:timers/promises",
+      "line": 3,
       "resolved": true,
       "confidence": 0.85,
       "extractor": "javascript-imports"
@@ -9088,10 +9964,40 @@
       "resolved": true,
       "confidence": 0.85,
       "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "file:src/content/routes.generated.ts",
+      "specifier": "@/src/content/routes.generated",
+      "line": 2,
+      "resolved": true,
+      "confidence": 0.85,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:src/lib/site-metadata.ts",
+      "target": "package:npm:next",
+      "specifier": "next",
+      "line": 1,
+      "resolved": false,
+      "confidence": 0.5,
+      "extractor": "javascript-imports"
+    },
+    {
+      "type": "imports",
+      "source": "file:src/lib/social-image.tsx",
+      "target": "package:npm:next",
+      "specifier": "next/og",
+      "line": 1,
+      "resolved": false,
+      "confidence": 0.5,
+      "extractor": "javascript-imports"
     }
   ],
   "warnings": [],
   "stats": {
-    "unresolvedCalls": 257
+    "unresolvedCalls": 268
   }
 }

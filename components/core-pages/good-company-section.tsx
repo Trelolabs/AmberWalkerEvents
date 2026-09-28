@@ -57,7 +57,7 @@ export function GoodCompanySection({ brands = true, heading = true }: { brands?:
     {brands ? <div className="brand-flow" aria-label="Featured clients"><div>{[...clientLogos, ...clientLogos].map(([alt, src], index) => <span key={`${src}-${index}`}><Image src={src} alt={alt} fill sizes="185px" /></span>)}</div></div> : null}
     <div className="review-flow" aria-label="Client testimonials"><div className="testimonial-track">
       {[...testimonialSets, testimonialSets[0]].map((set, setIndex) => <div className="testimonial-set" aria-hidden={setIndex === testimonialSets.length || undefined} key={setIndex}>
-        {set.map(([alt, src]) => <span className="testimonial-card" key={src}><Image className={setIndex === testimonialSets.length ? "testimonial-loop-slide" : "testimonial-slide"} src={src} alt={setIndex === testimonialSets.length ? "" : alt} fill sizes="(max-width: 767px) 88vw, 33vw" priority={setIndex === 0} unoptimized /></span>)}
+        {set.map(([alt, src]) => <span className="testimonial-card" key={src}><Image className={setIndex === testimonialSets.length ? "testimonial-loop-slide" : "testimonial-slide"} src={src} alt={setIndex === testimonialSets.length ? "" : alt} fill sizes="(max-width: 767px) 88vw, 33vw" /></span>)}
       </div>)}
     </div></div>
   </section>;

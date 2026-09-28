@@ -22,6 +22,7 @@
     "audit:routes": "ROUTE_AUDIT_REPORT_ONLY=1 node scripts/check-route-completeness.mjs",
     "verify:routes": "node scripts/check-route-completeness.mjs",
     "verify:harness": "next build && node scripts/check-verification-harness.mjs && node scripts/check-homepage-interactions.mjs && ROUTE_AUDIT_REPORT_ONLY=1 node scripts/check-route-completeness.mjs",
+    "verify:quality": "pnpm lint && pnpm typecheck && next build && node scripts/check-production-readiness.mjs && node scripts/check-route-completeness.mjs",
     "visual:test": "node scripts/visual-test.mjs"
   },
   "dependencies": {

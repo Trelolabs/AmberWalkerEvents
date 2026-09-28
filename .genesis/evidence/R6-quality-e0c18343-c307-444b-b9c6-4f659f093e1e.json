@@ -1,0 +1,30 @@
+{
+  "task": "R6",
+  "gate": "quality",
+  "kind": "command",
+  "attempt": "e0c18343-c307-444b-b9c6-4f659f093e1e",
+  "command": "pnpm verify:quality",
+  "started_at": "2026-09-28T17:18:26.054Z",
+  "observed_at": "2026-09-28T17:21:22.155Z",
+  "exit_code": null,
+  "signal": "SIGKILL",
+  "stdout": "▲ Next.js 16.3.6 (Turbopack)\n✓ Running next.config.ts took 244ms\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 2.8s\n  Running TypeScript ...\n  Finished TypeScript in 13.4s ...\n  Collecting page data using 7 workers ...\n  Generating static pages using 7 workers (0/99) ...\n  Generating static pages using 7 workers (24/99) \r\n  Generating static pages using 7 workers (49/99) \r\n  Generating static pages using 7 workers (74/99) \r\n✓ Generating static pages using 7 workers (99/99) in 5.5s\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ○ /\n├ ○ /_not-found\n├   /[...slug]\n│ ├ ● /aboutawe\n│ ├ ● /austinproposalplanning\n│ ├ ● /blog\n│ └ ● [+90 more paths]\n├ ƒ /og/[...slug]\n├ ○ /opengraph-image\n├ ○ /robots.txt\n└ ○ /sitemap.xml\n\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\nProduction readiness verified: 94 sitemap routes, robots, social images, form disclosure, and reduced motion.\n",
+  "stderr": "$ pnpm lint && pnpm typecheck && next build && node scripts/check-production-readiness.mjs && node scripts/check-route-completeness.mjs\n$ eslint .\n$ tsc --noEmit\n",
+  "failure": "source-mutated",
+  "receipt": null,
+  "revision": {
+    "commit": "ba04e0c0b0cf81feaf93f30357072e47df825883",
+    "dirty": true
+  },
+  "source_hash": "e98b3a01e6b7b91a5e5a2a01e69517b9f415efe76d10167f9f4e1d5ad29a3a65",
+  "before_hash": "8ee9c1840e4f0ce16db3b8d00246d7d48f34c8b676b7a73da455478246bd55b9",
+  "config_hash": "12660988cc0edf753ffe2c485759b6831b4799c41b2f988d7faec29206d41c1e",
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "linux",
+    "arch": "x64",
+    "verifier": "358371454f03eb4fdfd3eda3cb1d18cb1dd8fe9445404bb3d3047267b3977eb9",
+    "variables": {}
+  },
+  "hash": "c6745aabad6725786010f6ed1808ece4975844feea4b5b875069f06ce6e82236"
+}

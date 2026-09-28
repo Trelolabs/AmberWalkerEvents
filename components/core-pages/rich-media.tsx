@@ -44,7 +44,7 @@ export function PortfolioGallery({ heading, images, proposal }: GalleryProps) {
           triggerRef.current = event.currentTarget;
           setActive(index);
         }}
-      ><Image src={media.src} alt="" fill sizes="(max-width: 767px) 50vw, 20vw" loading="eager" unoptimized /></button>)}
+      ><Image src={media.src} alt="" fill sizes="(max-width: 767px) 50vw, 20vw" /></button>)}
     </section>
     <dialog
       ref={dialogRef}
@@ -58,7 +58,7 @@ export function PortfolioGallery({ heading, images, proposal }: GalleryProps) {
       }}
     >
       {active !== null ? <div className="portfolio-lightbox-frame">
-        <Image src={images[active].src} alt={`${heading} image ${active + 1} of ${images.length}`} fill sizes="90vw" priority unoptimized />
+        <Image src={images[active].src} alt={`${heading} image ${active + 1} of ${images.length}`} fill sizes="90vw" priority />
         <button className="portfolio-lightbox-close" type="button" aria-label="Close image viewer" onClick={close}>×</button>
         <button className="portfolio-lightbox-previous" type="button" aria-label="Previous image" onClick={() => move(-1)}>‹</button>
         <button className="portfolio-lightbox-next" type="button" aria-label="Next image" onClick={() => move(1)}>›</button>
@@ -93,7 +93,7 @@ export function VideoGallery({ heading, slides, proposal }: { heading: string; s
     <section className="video-carousel" aria-label={heading} aria-roledescription="carousel">
       <div className="video-stage">
         {playing ? <video src={slides[active].video} poster={slides[active].poster} controls autoPlay playsInline preload="metadata" aria-label={slides[active].title} /> : <>
-          <Image src={slides[active].poster} alt={slides[active].title} fill sizes="(max-width: 767px) 100vw, 980px" priority unoptimized />
+          <Image src={slides[active].poster} alt={slides[active].title} fill sizes="(max-width: 767px) 100vw, 980px" priority />
           <span className="video-stage-shade" />
           <button className="video-play" type="button" onClick={() => setPlaying(true)}><span aria-hidden="true">▶</span>Play Video</button>
         </>}
@@ -102,7 +102,7 @@ export function VideoGallery({ heading, slides, proposal }: { heading: string; s
         <button type="button" aria-label="Show video selection" aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>☰</button>
       </div>
       {menuOpen ? <div className="video-carousel-menu">{slides.map((slide, index) => <button type="button" key={slide.poster} aria-current={active === index} onClick={() => select(index)}>
-        <Image src={slide.poster} alt="" fill sizes="240px" unoptimized />
+        <Image src={slide.poster} alt="" fill sizes="240px" />
         <span>{slide.title}</span>
       </button>)}</div> : null}
     </section>
@@ -113,12 +113,12 @@ export function MediaFeature({ logos }: { logos: readonly (readonly [string, str
   return <main className="media-page">
     <h1>MEDIA</h1>
     <a className="media-video" href="https://www.youtube.com/watch?v=HgUBDIkKF70" target="_blank" rel="noreferrer" aria-label="Play Amber Walker Events on Cityline">
-      <Image src="/media/video/media-cityline-poster.jpg" alt="Amber Walker on Cityline" fill sizes="710px" priority unoptimized />
+      <Image src="/media/video/media-cityline-poster.jpg" alt="Amber Walker on Cityline" fill sizes="710px" priority />
       <span aria-hidden="true">▶</span>
     </a>
     <section className="media-press" aria-labelledby="media-press-title">
       <h2 id="media-press-title">AS SEEN ON</h2>
-      <div>{logos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="100px" loading="eager" unoptimized /></span>)}</div>
+      <div>{logos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="100px" /></span>)}</div>
     </section>
   </main>;
 }

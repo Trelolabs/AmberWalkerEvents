@@ -58,7 +58,7 @@ const pressLogos = [
 ] as const;
 
 function LocalImage({ media, alt, priority = false }: { media: LocationMedia; alt: string; priority?: boolean }) {
-  return <Image src={media.src} alt={alt} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} loading={priority ? undefined : "eager"} unoptimized />;
+  return <Image src={media.src} alt={alt} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} />;
 }
 
 function LegacyProposalPage({ page }: { page: LocationPageRecord }) {
@@ -84,12 +84,12 @@ function LegacyProposalPage({ page }: { page: LocationPageRecord }) {
     <section className="legacy-proposal-contact"><h2>Let&apos;s Start Planning</h2><span className="section-rule" /><div><p><strong>Call</strong><br />{city === "California" ? "(310) 750-4585" : "(647) 444-5599"}</p><p><strong>Email</strong><br />contact@amberwalkerevents.com</p></div></section>
     <section className="legacy-package" data-location-section="package"><div><Link href="/proposalweddingportfolio">CLICK HERE FOR GALLERY</Link></div><div><h2>PROPOSAL PLANNING PACKAGE</h2>{packageItems.map((item) => <p key={item}>{item}</p>)}</div></section>
     <section className="legacy-reviews" data-location-section="reviews">{reviews.slice(0, 4).map((review, index) => <article key={review}>{reviewImages[index % reviewImages.length] ? <div><LocalImage media={reviewImages[index % reviewImages.length]} alt="Amber Walker Events proposal" /></div> : null}<blockquote>{review}<cite>{["ASH", "MICKEY", "RAGULAN", "DREW"][index]}</cite></blockquote></article>)}</section>
-    <section className="legacy-consultation"><form><h2>Request A Free Consultation</h2><p>Let&apos;s work together to make it the perfect proposal</p><label>FULL NAME *<input name="name" autoComplete="name" /></label><label>PHONE *<input name="phone" type="tel" autoComplete="tel" /></label><label>EMAIL *<input name="email" type="email" autoComplete="email" /></label><label>EVENT DATE *<input name="eventDate" type="date" /></label><label>TELL US ABOUT YOUR PROPOSAL *<textarea name="message" rows={3} /></label><button type="submit">Send</button></form></section>
+    <section className="legacy-consultation"><form aria-describedby="legacy-form-note"><h2>Request A Free Consultation</h2><p>Let&apos;s work together to make it the perfect proposal</p><label>FULL NAME *<input name="name" autoComplete="name" disabled /></label><label>PHONE *<input name="phone" type="tel" autoComplete="tel" disabled /></label><label>EMAIL *<input name="email" type="email" autoComplete="email" disabled /></label><label>EVENT DATE *<input name="eventDate" type="date" disabled /></label><label>TELL US ABOUT YOUR PROPOSAL *<textarea name="message" rows={3} disabled /></label><p id="legacy-form-note">Online inquiries are being connected. Please email <a href="mailto:info@amberwalkerevents.com">info@amberwalkerevents.com</a>.</p><button type="button" disabled>Send</button></form></section>
   </main>;
 }
 
 function PressGrid() {
-  return <section className="location-press" data-location-section="press"><h2>AS SEEN ON</h2><div>{pressLogos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="140px" loading="eager" unoptimized /></span>)}</div></section>;
+  return <section className="location-press" data-location-section="press"><h2>AS SEEN ON</h2><div>{pressLogos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="140px" /></span>)}</div></section>;
 }
 
 function CorporatePlanning({ images: cardImages }: { images: LocationMedia[] }) {

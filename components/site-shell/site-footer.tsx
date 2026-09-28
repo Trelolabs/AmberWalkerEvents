@@ -90,19 +90,19 @@ export function SiteFooter({ proposal = false }: { proposal?: boolean }) {
       <small>Disclaimer: Amber Walker Events may use all photos and videos for promotional use</small>
       <small>Copyright © 2026 - Amber Walker Events. All Rights Reserved</small>
 
-      <dialog ref={dialogRef} className="inquiry-modal" onClose={() => setExpanded(false)}>
+      <dialog ref={dialogRef} className="inquiry-modal" aria-labelledby="inquiry-dialog-title" onClose={() => setExpanded(false)}>
         <div className={`inquiry-modal-panel${Object.keys(errors).length ? " has-errors" : ""}`}>
           <div className="inquiry-modal-content">
             <button className="inquiry-modal-close" type="button" aria-label="Close event inquiry" onClick={closeInquiry}>×</button>
-            <Image className="inquiry-modal-logo" src="/media/home/display/modal-mark.png" width={136} height={136} priority unoptimized alt="" />
+            <Image className="inquiry-modal-logo" src="/media/home/display/modal-mark.png" width={136} height={136} priority alt="" />
             <div className="inquiry-modal-heading">
-              <h2>Contact us</h2>
+              <h2 id="inquiry-dialog-title">Contact us</h2>
               <a href="mailto:info@amberwalkerevents.com">info@amberwalkerevents.com</a>
               <a href="tel:+16474445599">Canadian - Toronto Office: (647) 444-5599</a>
               <a href="tel:+13107504585">USA - California Office: (310) 750-4585</a>
               <a href="https://www.instagram.com/amberwalkerevents/" target="_blank" rel="noreferrer">Follow us: @AmberWalkerEvents</a>
             </div>
-            <form className="inquiry-modal-form" onSubmit={submitInquiry} noValidate>
+            <form className="inquiry-modal-form" aria-describedby="inquiry-delivery-note" onSubmit={submitInquiry} noValidate>
               <label><span>Full Name</span><input name="name" type="text" placeholder="Full Name" autoComplete="name" required {...fieldProps("name")} />{fieldError("name")}</label>
               <label><span>Email</span><input name="email" type="email" placeholder="Email" autoComplete="email" required {...fieldProps("email")} />{fieldError("email")}</label>
               <label><span>Phone</span><input name="phone" type="tel" placeholder="Phone" autoComplete="tel" required {...fieldProps("phone")} />{fieldError("phone")}</label>
@@ -113,7 +113,8 @@ export function SiteFooter({ proposal = false }: { proposal?: boolean }) {
               <label><span>What is your Budget</span><select name="budget" aria-label="What is your Budget" defaultValue="" required {...fieldProps("budget")}><option value="" disabled>What is your Budget</option><option>Under $10,000</option><option>$10,000 - $25,000</option><option>$25,000 - $50,000</option><option>$50,000 - $100,000</option><option>$100,000+</option></select>{fieldError("budget")}</label>
               <label className="inquiry-message"><span>Tell Us About Your Event</span><textarea name="message" placeholder="Tell Us About Your Event" required {...fieldProps("message")} />{fieldError("message")}</label>
               <button className="inquiry-submit" type="submit">Submit</button>
-              {submitted ? <p className="inquiry-success" role="status">Thank you. Your inquiry details are ready for the Amber Walker Events team.</p> : null}
+              <p className="inquiry-delivery-note" id="inquiry-delivery-note">This preview validates your details but does not send them yet. For immediate help, email <a href="mailto:info@amberwalkerevents.com">info@amberwalkerevents.com</a>.</p>
+              {submitted ? <p className="inquiry-success" role="status">Your details are valid but have not been sent. Please use the email address above while online delivery is being connected.</p> : null}
             </form>
           </div>
         </div>

@@ -59,7 +59,7 @@ function displayAsset(filename: string): CoreMedia {
 }
 
 function MediaImage({ media, alt, priority = false }: { media: CoreMedia; alt: string; priority?: boolean }) {
-  return <Image src={media.src} alt={alt} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} loading={priority ? undefined : "eager"} unoptimized />;
+  return <Image src={media.src} alt={alt} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} />;
 }
 
 function Hero({ page, title, kicker }: { page: CorePageRecord; title: string; kicker?: string }) {
@@ -83,7 +83,7 @@ function Hero({ page, title, kicker }: { page: CorePageRecord; title: string; ki
 
 function ServicePress({ tone = "dark", media }: { tone?: "dark" | "lilac" | "light"; media?: CoreMedia[] }) {
   const logos = media?.map((logo, index) => [`Press logo ${index + 1}`, logo.src] as const) || pressLogos;
-  return <section className={`service-press ${tone}`}><h2>AS SEEN ON</h2><div>{logos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="100px" unoptimized /></span>)}</div></section>;
+  return <section className={`service-press ${tone}`}><h2>AS SEEN ON</h2><div>{logos.map(([alt, src]) => <span key={src}><Image src={src} alt={alt} fill sizes="100px" /></span>)}</div></section>;
 }
 
 function ServicePlanning({ media, labels }: { media: CoreMedia[]; labels: readonly string[] }) {
@@ -113,8 +113,8 @@ function HomePage({ page }: { page: CorePageRecord }) {
   return <main className="home-page">
     <HomeHeroCarousel />
     <section className="home-philosophy"><h1>AMBER WALKER EVENTS PHILOSOPHY</h1><span className="section-rule" />{body ? <p>{body}</p> : null}</section>
-    <section className="press-section"><h2>AS SEEN ON</h2><div className="logo-grid">{pressLogos.map(([alt, src]) => <div key={src}><Image src={src} alt={alt} fill sizes="100px" unoptimized /></div>)}</div></section>
-    <section className="services-overview"><h2>A FULL SERVICE EVENT PLANNING FIRM</h2><span className="section-rule" /><div className="service-card-grid">{services.map(([label, href, src]) => <Link href={href} key={href} className="service-card"><Image src={src} alt="" fill sizes="265px" unoptimized /><span>{label}</span></Link>)}</div></section>
+    <section className="press-section"><h2>AS SEEN ON</h2><div className="logo-grid">{pressLogos.map(([alt, src]) => <div key={src}><Image src={src} alt={alt} fill sizes="100px" /></div>)}</div></section>
+    <section className="services-overview"><h2>A FULL SERVICE EVENT PLANNING FIRM</h2><span className="section-rule" /><div className="service-card-grid">{services.map(([label, href, src]) => <Link href={href} key={href} className="service-card"><Image src={src} alt="" fill sizes="265px" /><span>{label}</span></Link>)}</div></section>
     <GoodCompanySection />
   </main>;
 }
@@ -195,7 +195,7 @@ function VideoPage({ page, route }: { page: CorePageRecord; route: RouteRecord }
 }
 
 function ContactPage() {
-  return <main className="contact-page"><div className="contact-locations"><section><h1>CALIFORNIA</h1><p>2219 Main Street, Unit 198,<br />Santa Monica, California<br /><strong>Phone: (310) 750 - 4585</strong></p><div aria-hidden="true" /></section><section><h1>TORONTO</h1><p>27 Bathurst Street,<br />Toronto, Ontario<br /><strong>Phone: (647) 444 - 5599</strong></p><div aria-hidden="true" /></section></div></main>;
+  return <main className="contact-page"><h1 className="visually-hidden">Contact Amber Walker Events</h1><div className="contact-locations"><section><h2>CALIFORNIA</h2><p>2219 Main Street, Unit 198,<br />Santa Monica, California<br /><strong>Phone: (310) 750 - 4585</strong></p><div aria-hidden="true" /></section><section><h2>TORONTO</h2><p>27 Bathurst Street,<br />Toronto, Ontario<br /><strong>Phone: (647) 444 - 5599</strong></p><div aria-hidden="true" /></section></div></main>;
 }
 
 function LegacySocialPage({ page }: { page: CorePageRecord }) {
@@ -218,7 +218,7 @@ function LegacySocialPage({ page }: { page: CorePageRecord }) {
     <section className="legacy-social-cta"><h2>SCHEDULE A CALL WITH AMBER NOW</h2><Link href="/contact">SCHEDULE NOW</Link></section>
     <section className="legacy-good-company">
       <h2>YOU&apos;RE IN GOOD COMPANY</h2>
-      <div className="legacy-client-logos"><span /><span /><div><Image src="/media/home/1a6711-0603a6063d1b4830b3b21dca5602929a-mv2-c8acd2cc6d.png" alt="St. Regis" fill sizes="251px" unoptimized /></div></div>
+      <div className="legacy-client-logos"><span /><span /><div><Image src="/media/home/1a6711-0603a6063d1b4830b3b21dca5602929a-mv2-c8acd2cc6d.png" alt="St. Regis" fill sizes="251px" /></div></div>
       <blockquote>{testimonial}<cite>Meghan Spiteri<br />Shoppers World Brampton, RioCan</cite></blockquote>
       <div className="legacy-dots" aria-hidden="true">• • • • • •</div>
     </section>

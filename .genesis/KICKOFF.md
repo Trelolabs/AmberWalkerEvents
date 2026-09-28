@@ -15,7 +15,7 @@ Load Genesis and official Ponytail full, then run `genesis brief .` for the curr
 Fetch full records with `genesis context . --id ID` only when needed. Do not load project.json or historical proof wholesale.
 Ask the index before reading code: `genesis query . search|scope|callers|callees|impact|path` (`--json` for parsing). Run `genesis query . impact PATH` before editing shared code. Answers are advisory static analysis; `ambiguous` means candidates were not ruled out, so confirm in source.
 Run `genesis serve .` for a live map of the repository when structure is unclear; it reindexes on save and is read-only. Run `genesis index .` if the index is stale and nothing is watching.
-Context fingerprint: 73c7273f30dc7b19ac27a143988107ca98dd9fab53fc6ab7dc087e2955f08683. Use --since only after receiving that full packet; kickoff is not the packet.
+Context fingerprint: d45075872e7c17f67379194ecc3150d8fabc2f6d5e0cfacd427deb0748c34312. Use --since only after receiving that full packet; kickoff is not the packet.
 - DECISION-2872fab4: Good Company uses horizontal grouped review motion
 - DECISION-3e2fa4c6: First Vercel deployment classified as production
 - KNOWLEDGE-3c3a5293: Vercel image outage caused by disabled Git LFS

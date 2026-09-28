@@ -14,7 +14,7 @@ function ArticleMedia({ media, title, priority = false }: { media: BlogMedia; ti
   const style = { "--blog-media-ratio": media.aspect } as CSSProperties;
   if (media.kind === "missing") return <div className="blog-media blog-media-missing" style={style} aria-label="Source media unavailable" />;
   if (media.kind === "video") return <div className="blog-media blog-video" style={style}><video src={media.src} autoPlay muted loop playsInline preload="metadata" aria-label={`${title} video`} /></div>;
-  return <div className="blog-media" style={style}><Image src={media.src} alt={title} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} unoptimized /></div>;
+  return <div className="blog-media" style={style}><Image src={media.src} alt={title} fill sizes="(max-width: 767px) 100vw, 50vw" priority={priority} /></div>;
 }
 
 export function BlogIndex() {
@@ -32,7 +32,7 @@ export function BlogIndex() {
     </div>
     <section className="blog-grid" aria-live="polite">
       {articles.map((article) => <article className="blog-card" key={article.slug}>
-        <div className="blog-card-image"><Image src={article.image} alt="" fill sizes="246px" unoptimized /></div>
+        <div className="blog-card-image"><Image src={article.image} alt="" fill sizes="246px" /></div>
         <div className="blog-card-copy"><h2>{article.indexTitle}</h2><p className="blog-card-subject">{article.indexSubject}</p><span>{article.indexLocation}</span><p className="blog-card-excerpt">{article.indexExcerpt}</p><Link href={`/blogs/${article.slug}`}>Read Story</Link></div>
       </article>)}
       {!articles.length ? <p className="blog-empty">No stories match those filters.</p> : null}

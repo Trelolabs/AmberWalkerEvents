@@ -31,7 +31,7 @@ export function SiteHeader({ theme }: { theme: SiteTheme }) {
     <><span ref={sentinelRef} className="site-header-sentinel" aria-hidden="true" /><header className={`site-header${compact ? " is-compact" : ""}${legacySocial ? " legacy-site-header" : ""}`} data-theme={theme}>
       <div className="brand-lockup">
         <Link href="/" aria-label="Amber Walker Events home">
-          <Image className="brand-logo" src={legacySocial ? "/media/services/display/legacy-header-logo.png" : logos[theme]} width={legacySocial ? 460 : 367} height={legacySocial ? 232 : 184} priority unoptimized alt="Amber Walker Events" />
+          <Image className="brand-logo" src={legacySocial ? "/media/services/display/legacy-header-logo.png" : logos[theme]} width={legacySocial ? 460 : 367} height={legacySocial ? 232 : 184} priority alt="Amber Walker Events" />
         </Link>
         {legacySocial ? <div className="legacy-social-icons" aria-label="Social media"><span>◎</span><span>f</span><span>in</span></div> : null}
       </div>
